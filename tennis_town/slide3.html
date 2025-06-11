@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<title>테니스타운 vs KATA 동호인 테니스 대회 비교 - 대회 규모 및 비용</title>
+	<style>
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.slide-container {
+			width: 1280px;
+			min-height: 840px;
+			position: relative;
+			overflow: hidden;
+		}
+		.tennis-pattern {
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			border: 8px solid rgba(0, 0, 0, 0.03);
+			border-radius: 50%;
+			z-index: -1;
+		}
+		.data-card {
+			transition: all 0.3s ease;
+		}
+		.data-card:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+		}
+	</style>
+</head>
+<body>
+<div class="slide-container bg-gradient-to-br from-blue-50 to-green-50 p-12">
+	<!-- 배경 요소 -->
+	<div class="tennis-pattern" style="top: -100px; left: -100px;"></div>
+	<div class="tennis-pattern" style="bottom: -100px; right: -100px;"></div>
+
+	<!-- 헤더 -->
+	<div class="mb-8 text-center relative">
+		<h1 class="text-3xl font-bold text-gray-800">대회 규모 및 비용 비교</h1>
+		<div class="w-24 h-1 bg-yellow-400 mx-auto mt-3"></div>
+	</div>
+
+	<!-- 비교 차트 영역 -->
+	<div class="flex mb-8">
+		<!-- 참가자 수 비교 차트 -->
+		<div class="w-1/2 pr-4">
+			<div class="bg-white p-4 rounded-lg shadow-md h-64">
+				<h3 class="text-lg font-semibold text-gray-700 mb-3">참가자 규모 비교</h3>
+				<canvas id="participantsChart" height="200"></canvas>
+			</div>
+		</div>
+		<!-- 부서 구성 비교 차트 -->
+		<div class="w-1/2 pl-4">
+			<div class="bg-white p-4 rounded-lg shadow-md h-64">
+				<h3 class="text-lg font-semibold text-gray-700 mb-3">부서 구성 비교</h3>
+				<canvas id="divisionsChart" height="200"></canvas>
+			</div>
+		</div>
+	</div>
+
+	<!-- 세부 비교 정보 -->
+	<div class="grid grid-cols-2 gap-6">
+		<!-- 테니스타운 정보 -->
+		<div class="data-card bg-white p-5 rounded-lg shadow-md">
+			<h2 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+				<i class="fas fa-trophy mr-2"></i>테니스타운 대회 특성
+			</h2>
+			<ul class="space-y-2 text-gray-700">
+				<li class="flex items-start">
+					<i class="fas fa-users text-blue-500 mt-1 mr-2"></i>
+					<span><strong>참가자 규모:</strong> 최대 1,500명 (하나증권 13부 기준)</span>
+				</li>
+				<li class="flex items-start">
+					<i class="fas fa-layer-group text-blue-500 mt-1 mr-2"></i>
+					<span><strong>부서 구성:</strong> 최대 13개 부서 (하나증권), 6개 부서 (국민은행)</span>
+				</li>
+				<li class="flex items-start">
+					<i class="fas fa-coins text-blue-500 mt-1 mr-2"></i>
+					<span><strong>예상 비용:</strong> 4~5천만원 (참가비 수입에 따라 절감 가능)</span>
+				</li>
+				<li class="flex items-start">
+					<i class="fas fa-plus-circle text-blue-500 mt-1 mr-2"></i>
+					<span><strong>특이사항:</strong> 진행비 별도 (하나증권 6~7천만원), 개별 주식 지급</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- KATA 정보 -->
+		<div class="data-card bg-white p-5 rounded-lg shadow-md">
+			<h2 class="text-xl font-semibold text-green-600 mb-4 flex items-center">
+				<i class="fas fa-medal mr-2"></i>KATA 대회 특성
+			</h2>
+			<ul class="space-y-2 text-gray-700">
+				<li class="flex items-start">
+					<i class="fas fa-users text-green-500 mt-1 mr-2"></i>
+					<span><strong>참가자 규모:</strong> 최대 1,000명 (3개 부서 800명 기준)</span>
+				</li>
+				<li class="flex items-start">
+					<i class="fas fa-layer-group text-green-500 mt-1 mr-2"></i>
+					<span><strong>부서 구성:</strong> 3개 부서 (신인부, 개나리부, 오픈부)</span>
+				</li>
+				<li class="flex items-start">
+					<i class="fas fa-coins text-green-500 mt-1 mr-2"></i>
+					<span><strong>예상 비용:</strong> 4~5천만원 (참가비 수입에 따라 절감 가능)</span>
+				</li>
+				<li class="flex items-start">
+					<i class="fas fa-plus-circle text-green-500 mt-1 mr-2"></i>
+					<span><strong>특이사항:</strong> 랭킹포인트 시스템 기반 운영, 연간 45개 대회 경험</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 코트 및 시설 비용 비교 -->
+	<div class="mt-6 bg-white p-5 rounded-lg shadow-md">
+		<h3 class="text-lg font-semibold text-gray-700 mb-3">코트 및 시설 비용 비교</h3>
+		<div class="flex">
+			<div class="w-1/2 pr-4">
+				<h4 class="text-blue-600 font-medium mb-2">테니스타운 & KATA 공통사항</h4>
+				<ul class="text-gray-700 space-y-1">
+					<li class="flex items-center">
+						<i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+						<span>올림픽공원, 육군사관학교 주로 사용 (10월 어려움, 11월 가능)</span>
+					</li>
+					<li class="flex items-center">
+						<i class="fas fa-check-circle text-yellow-500 mr-2"></i>
+						<span>시설물 설치비 별도 발생 (부스 설치, 광고 부착 등)</span>
+					</li>
+				</ul>
+			</div>
+			<div class="w-1/2 pl-4">
+				<h4 class="text-gray-700 font-medium mb-2">비교 우위</h4>
+				<div class="flex items-center text-gray-700 mb-2">
+					<div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+					<span>KATA: 코트 수배 능력 약간 우위</span>
+				</div>
+				<div class="flex items-center text-gray-700">
+					<div class="w-4 h-4 bg-blue-500 rounded-full mr-2"></div>
+					<span>테니스타운: 젊은층 접근성 우위</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// 참가자 수 비교 차트
+		const participantsCtx = document.getElementById('participantsChart').getContext('2d');
+		const participantsChart = new Chart(participantsCtx, {
+			type: 'bar',
+			data: {
+				labels: ['테니스타운', 'KATA'],
+				datasets: [{
+					label: '최대 참가자 수',
+					data: [1500, 1000],
+					backgroundColor: [
+						'rgba(59, 130, 246, 0.6)',
+						'rgba(16, 185, 129, 0.6)'
+					],
+					borderColor: [
+						'rgba(59, 130, 246, 1)',
+						'rgba(16, 185, 129, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				maintainAspectRatio: false,
+				scales: {
+					y: {
+						beginAtZero: true,
+						max: 2000
+					}
+				}
+			}
+		});
+
+		// 부서 구성 비교 차트
+		const divisionsCtx = document.getElementById('divisionsChart').getContext('2d');
+		const divisionsChart = new Chart(divisionsCtx, {
+			type: 'bar',
+			data: {
+				labels: ['테니스타운', 'KATA'],
+				datasets: [{
+					label: '최대 부서 수',
+					data: [13, 3],
+					backgroundColor: [
+						'rgba(59, 130, 246, 0.6)',
+						'rgba(16, 185, 129, 0.6)'
+					],
+					borderColor: [
+						'rgba(59, 130, 246, 1)',
+						'rgba(16, 185, 129, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				maintainAspectRatio: false,
+				scales: {
+					y: {
+						beginAtZero: true,
+						max: 15
+					}
+				}
+			}
+		});
+	</script>
+</div>
+</body>
+</html>
