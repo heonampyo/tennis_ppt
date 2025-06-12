@@ -13,13 +13,25 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #f0f0f0;
 		}
 		.slide-container {
-			width: 1280px;
-			height: 720px;
+			width: 90vw; /* Use viewport width */
+			max-width: 1280px; /* Maximum width */
+			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
 			position: relative;
 			background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 			overflow: hidden;
+		}
+		@media (max-aspect-ratio: 16/9) {
+			.slide-container {
+				height: 90vh; /* Use viewport height if aspect ratio is narrower */
+				width: auto; /* Let width adjust based on height */
+			}
 		}
 		.accent-bar {
 			position: absolute;
@@ -31,20 +43,21 @@
 		}
 		.logo {
 			position: absolute;
-			top: 30px;
-			right: 50px;
-			width: 150px;
+			top: 4.16vh; /* 30px / 720px */
+			right: 3.9vw; /* 50px / 1280px */
+			width: 11.7vw; /* 150px / 1280px */
+			max-width: 150px;
 		}
 		.title-bar {
-			padding: 30px 0 20px 100px;
+			padding: 4.16vh 0 2.77vh 7.8vw; /* 30px/720px, 20px/720px, 100px/1280px */
 			position: relative;
 		}
 		.title-bar:after {
 			content: '';
 			position: absolute;
 			bottom: 0;
-			left: 100px;
-			width: 80px;
+			left: 7.8vw; /* 100px/1280px */
+			width: 6.25vw; /* 80px/1280px */
 			height: 4px;
 			background-color: #0078c1;
 		}
@@ -71,10 +84,11 @@
 		}
 		.badge {
 			display: inline-block;
-			padding: 4px 12px;
+			padding: 0.55vh 0.9375vw; /* 4px/720px, 12px/1280px */
 			border-radius: 16px;
-			font-size: 13px;
-			margin-right: 8px;
+			font-size: 1.01vw; /* 13px/1280px */
+			max-font-size: 13px;
+			margin-right: 0.625vw; /* 8px/1280px */
 			color: white;
 		}
 		.badge-blue {
@@ -85,7 +99,7 @@
 		}
 		.stat-box {
 			border-radius: 8px;
-			padding: 12px;
+			padding: 1.66vh 0.9375vw; /* 12px/720px, 12px/1280px */
 			text-align: center;
 		}
 		.stat-box-blue {
@@ -96,20 +110,22 @@
 		}
 		.footer {
 			position: absolute;
-			bottom: 30px;
-			left: 100px;
-			font-size: 14px;
+			bottom: 4.16vh; /* 30px / 720px */
+			left: 7.8vw; /* 100px / 1280px */
+			font-size: 1.09vw; /* 14px / 1280px */
+			max-font-size: 14px;
 			color: #666;
 		}
 		.feature-item {
 			display: flex;
 			align-items: flex-start;
-			margin-bottom: 12px;
+			margin-bottom: 1.66vh; /* 12px/720px */
 		}
 		.feature-item i {
-			width: 24px;
-			margin-right: 10px;
-			margin-top: 4px;
+			width: 1.875vw; /* 24px/1280px */
+			margin-right: 0.78vw; /* 10px/1280px */
+			margin-top: 0.55vh; /* 4px/720px */
+			color: #00857d;
 		}
 		.feature-item-blue i {
 			color: #0078c1;
@@ -119,13 +135,80 @@
 		}
 		.partner-tag {
 			display: inline-block;
-			padding: 3px 8px;
+			padding: 0.416vh 0.625vw; /* 3px/720px, 8px/1280px */
 			border-radius: 4px;
-			font-size: 12px;
-			margin-right: 4px;
-			margin-bottom: 4px;
+			font-size: 0.9375vw; /* 12px/1280px */
+			max-font-size: 12px;
+			margin-right: 0.31vw; /* 4px/1280px */
+			margin-bottom: 0.55vh; /* 4px/720px */
 			color: white;
 			background-color: #6B7280;
+		}
+
+		/* Font sizes */
+		h1.text-3xl {
+			font-size: 2.34vw; /* 30px/1280px */
+			max-font-size: 30px;
+		}
+		p.text-gray-600.mt-2 {
+			font-size: 1.25vw; /* 16px/1280px */
+			max-font-size: 16px;
+		}
+		h2.text-2xl {
+			font-size: 1.875vw; /* 24px/1280px */
+			max-font-size: 24px;
+		}
+		.text-sm {
+			font-size: 0.9375vw; /* 12px/1280px */
+			max-font-size: 12px;
+		}
+		.text-lg {
+			font-size: 1.4vw; /* 18px/1280px */
+			max-font-size: 18px;
+		}
+		.text-xl {
+			font-size: 1.56vw; /* 20px/1280px */
+			max-font-size: 20px;
+		}
+		.text-xs {
+			font-size: 0.78vw; /* 10px/1280px */
+			max-font-size: 10px;
+		}
+		.content-area {
+			padding-left: 7.8vw; /* 100px/1280px */
+			padding-right: 7.8vw; /* 100px/1280px */
+			margin-top: 0.83vh; /* 6px/720px */
+		}
+		.content-area .grid {
+			gap: 0.625vw; /* 8px/1280px */
+		}
+		.w-12 {
+			width: 3.9vw; /* 12px/1280px */
+			height: 5.55vh; /* 12px/720px */
+		}
+		.mr-4 {
+			margin-right: 0.31vw; /* 4px/1280px */
+		}
+		.mt-1 {
+			margin-top: 0.13vh; /* 1px/720px */
+		}
+		.mb-5 {
+			margin-bottom: 0.69vh; /* 5px/720px */
+		}
+		.mb-4 {
+			margin-bottom: 0.55vh; /* 4px/720px */
+		}
+		.mt-4 {
+			margin-top: 0.55vh; /* 4px/720px */
+		}
+		.gap-3 {
+			gap: 0.23vw; /* 3px/1280px */
+		}
+		.mt-2 {
+			margin-top: 0.27vh; /* 2px/720px */
+		}
+		.p-2 {
+			padding: 0.27vh 0.15vw; /* 2px/720px, 2px/1280px */
 		}
 	</style>
 </head>

@@ -13,13 +13,25 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #f0f0f0; /* Added background color for consistency with mainSlide.html */
 		}
 		.slide-container {
-			width: 1280px;
-			height: 720px;
+			width: 90vw; /* Use viewport width */
+			max-width: 1280px; /* Maximum width */
+			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
 			position: relative;
 			background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 			overflow: hidden;
+		}
+		@media (max-aspect-ratio: 16/9) {
+			.slide-container {
+				height: 90vh; /* Use viewport height if aspect ratio is narrower */
+				width: auto; /* Let width adjust based on height */
+			}
 		}
 		.accent-bar {
 			position: absolute;
@@ -31,52 +43,66 @@
 		}
 		.logo {
 			position: absolute;
-			top: 30px;
-			right: 50px;
-			width: 150px;
+			top: 4.16vh; /* 30px / 720px = 0.0416 * 100vh */
+			right: 3.9vw; /* 50px / 1280px = 0.039 * 100vw */
+			width: 11.7vw; /* 150px / 1280px = 0.117 * 100vw */
+			max-width: 150px;
 		}
 		.tennis-icon {
 			position: absolute;
-			bottom: 40px;
-			right: 40px;
+			bottom: 5.55vh; /* 40px / 720px = 0.0555 * 100vh */
+			right: 3.125vw; /* 40px / 1280px = 0.03125 * 100vw */
 			color: #00857d;
 			opacity: 0.1;
-			font-size: 240px;
+			font-size: 18.75vw; /* 240px / 1280px = 0.1875 * 100vw */
+			max-font-size: 240px;
 		}
 		.title-container {
-			padding-top: 180px;
-			padding-left: 100px;
+			padding-top: 25vh; /* 180px / 720px = 0.25 * 100vh */
+			padding-left: 7.8vw; /* 100px / 1280px = 0.078 * 100vw */
 			width: 70%;
 		}
 		.subtitle {
 			display: inline-block;
 			background-color: rgba(0, 133, 125, 0.1);
 			color: #00857d;
-			padding: 8px 16px;
+			padding: 1.11vh 1.25vw; /* 8px/720px, 16px/1280px */
 			border-radius: 4px;
-			margin-bottom: 20px;
+			margin-bottom: 2.77vh; /* 20px/720px */
 		}
 		.year-badge {
 			display: inline-block;
 			background-color: #0078c1;
 			color: white;
-			padding: 4px 12px;
+			padding: 0.55vh 0.9375vw; /* 4px/720px, 12px/1280px */
 			border-radius: 20px;
-			font-size: 16px;
-			margin-top: 16px;
+			font-size: 1.25vw; /* 16px/1280px */
+			max-font-size: 16px;
+			margin-top: 2.22vh; /* 16px/720px */
 		}
 		.footer {
 			position: absolute;
-			bottom: 30px;
-			left: 100px;
-			font-size: 14px;
+			bottom: 4.16vh; /* 30px/720px */
+			left: 7.8vw; /* 100px/1280px */
+			font-size: 1.09vw; /* 14px/1280px */
+			max-font-size: 14px;
 			color: #666;
 		}
 		.divider {
-			width: 100px;
+			width: 7.8vw; /* 100px/1280px */
+			max-width: 100px;
 			height: 4px;
 			background-color: #00857d;
-			margin: 30px 0;
+			margin: 4.16vh 0; /* 30px/720px */
+		}
+		/* Adjust font sizes for h1 and p using vw */
+		h1 {
+			font-size: 3.9vw; /* 50px / 1280px = 0.039 * 100vw */
+			max-font-size: 50px;
+		}
+		p {
+			font-size: 1.56vw; /* 20px / 1280px = 0.0156 * 100vw */
+			max-font-size: 20px;
 		}
 	</style>
 </head>

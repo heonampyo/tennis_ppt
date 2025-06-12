@@ -13,17 +13,29 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #f0f0f0;
 		}
 		.slide-container {
-			width: 1280px;
-			min-height: 840px;
+			width: 90vw; /* Use viewport width */
+			max-width: 1280px; /* Maximum width */
+			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio (1280x720) */
 			position: relative;
 			overflow: hidden;
 		}
+		@media (max-aspect-ratio: 16/9) {
+			.slide-container {
+				height: 90vh; /* Use viewport height if aspect ratio is narrower */
+				width: auto; /* Let width adjust based on height */
+			}
+		}
 		.tennis-ball {
 			position: absolute;
-			width: 200px;
-			height: 200px;
+			width: 15.625vw; /* 200px / 1280px */
+			height: 27.77vh; /* 200px / 720px */
 			background-color: #c6ff00;
 			border-radius: 50%;
 			z-index: -1;
@@ -31,20 +43,20 @@
 		}
 		.tennis-pattern {
 			position: absolute;
-			width: 600px;
-			height: 600px;
+			width: 46.875vw; /* 600px / 1280px */
+			height: 83.33vh; /* 600px / 720px */
 			border: 10px solid rgba(255, 255, 255, 0.1);
 			border-radius: 50%;
-			top: -200px;
-			right: -200px;
+			top: -27.77vh; /* -200px / 720px */
+			right: -15.625vw; /* -200px / 1280px */
 			z-index: -1;
 		}
 		.tennis-court {
 			position: absolute;
-			bottom: -100px;
+			bottom: -13.88vh; /* -100px / 720px */
 			left: 0;
 			width: 100%;
-			height: 300px;
+			height: 41.66vh; /* 300px / 720px */
 			background-color: rgba(78, 159, 61, 0.1);
 			z-index: -2;
 		}
@@ -53,6 +65,93 @@
 			height: 2px;
 			background-color: rgba(255, 255, 255, 0.3);
 			width: 100%;
+		}
+
+		/* Responsive adjustments for tennis_town/slide1.html */
+		.slide-container.p-16 {
+			padding: 2.22vh 1.25vw; /* 16px/720px, 16px/1280px */
+		}
+		.text-center.mb-12 {
+			margin-bottom: 1.66vh; /* 12px/720px */
+		}
+		h1.text-5xl {
+			font-size: 3.9vw; /* 50px/1280px */
+			max-font-size: 50px;
+		}
+		h2.text-4xl {
+			font-size: 3.125vw; /* 40px/1280px */
+			max-font-size: 40px;
+		}
+		.w-32 {
+			width: 2.5vw; /* 32px/1280px */
+		}
+		.h-1 {
+			height: 0.138vh; /* 1px/720px */
+		}
+		.my-8 {
+			margin-top: 1.11vh; /* 8px/720px */
+			margin-bottom: 1.11vh; /* 8px/720px */
+		}
+		.flex.justify-center.items-center.mb-12 {
+			margin-bottom: 1.66vh; /* 12px/720px */
+		}
+		.bg-white.p-6 {
+			padding: 0.83vh 0.46vw; /* 6px/720px, 6px/1280px */
+		}
+		.bg-white.mx-4 {
+			margin-left: 0.31vw; /* 4px/1280px */
+			margin-right: 0.31vw; /* 4px/1280px */
+		}
+		.fa-trophy.text-5xl, .fa-medal.text-5xl {
+			font-size: 3.9vw; /* 50px/1280px */
+			max-font-size: 50px;
+		}
+		.mr-4 {
+			margin-right: 0.31vw; /* 4px/1280px */
+		}
+		h3.text-2xl {
+			font-size: 1.875vw; /* 24px/1280px */
+			max-font-size: 24px;
+		}
+		.text-4xl.font-bold.text-gray-400.mx-6 {
+			font-size: 3.125vw; /* 40px/1280px */
+			max-font-size: 40px;
+			margin-left: 0.46vw; /* 6px/1280px */
+			margin-right: 0.46vw; /* 6px/1280px */
+		}
+		.text-lg {
+			font-size: 1.4vw; /* 18px/1280px */
+			max-font-size: 18px;
+		}
+		.text-center.mt-4 {
+			margin-top: 0.55vh; /* 4px/720px */
+		}
+		.flex.justify-center.items-center.mt-8 {
+			margin-top: 1.11vh; /* 8px/720px */
+		}
+		.mr-2 {
+			margin-right: 0.15vw; /* 2px/1280px */
+		}
+		.court-line[style*="top: 50px;"] {
+			top: 6.94vh !important; /* 50px/720px */
+		}
+		.court-line[style*="top: 150px;"] {
+			top: 20.83vh !important; /* 150px/720px */
+		}
+		.court-line[style*="top: 250px;"] {
+			top: 34.72vh !important; /* 250px/720px */
+		}
+		.tennis-ball[style*="top: 100px;"] {
+			top: 13.88vh !important; /* 100px/720px */
+		}
+		.tennis-ball[style*="left: 200px;"] {
+			left: 15.625vw !important; /* 200px/1280px */
+		}
+		.tennis-ball[style*="bottom: 150px;"] {
+			bottom: 20.83vh !important; /* 150px/720px */
+		}
+		.tennis-ball[style*="right: 300px;"] {
+			right: 23.4375vw !important; /* 300px/1280px */
 		}
 	</style>
 </head>

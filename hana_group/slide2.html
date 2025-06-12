@@ -13,13 +13,25 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: #f0f0f0;
 		}
 		.slide-container {
-			width: 1280px;
-			height: 720px;
+			width: 90vw; /* Use viewport width */
+			max-width: 1280px; /* Maximum width */
+			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
 			position: relative;
 			background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 			overflow: hidden;
+		}
+		@media (max-aspect-ratio: 16/9) {
+			.slide-container {
+				height: 90vh; /* Use viewport height if aspect ratio is narrower */
+				width: auto; /* Let width adjust based on height */
+			}
 		}
 		.accent-bar {
 			position: absolute;
@@ -31,20 +43,21 @@
 		}
 		.logo {
 			position: absolute;
-			top: 30px;
-			right: 50px;
-			width: 150px;
+			top: 4.16vh; /* 30px / 720px */
+			right: 3.9vw; /* 50px / 1280px */
+			width: 11.7vw; /* 150px / 1280px */
+			max-width: 150px;
 		}
 		.title-bar {
-			padding: 30px 0 20px 100px;
+			padding: 4.16vh 0 2.77vh 7.8vw; /* 30px/720px, 20px/720px, 100px/1280px */
 			position: relative;
 		}
 		.title-bar:after {
 			content: '';
 			position: absolute;
 			bottom: 0;
-			left: 100px;
-			width: 80px;
+			left: 7.8vw; /* 100px/1280px */
+			width: 6.25vw; /* 80px/1280px */
 			height: 4px;
 			background-color: #00857d;
 		}
@@ -52,7 +65,7 @@
 			background-color: white;
 			border-radius: 10px;
 			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-			height: 320px;
+			height: 44.44vh; /* 320px / 720px */
 			position: relative;
 			overflow: hidden;
 		}
@@ -70,10 +83,11 @@
 		}
 		.event-tag {
 			display: inline-block;
-			padding: 3px 10px;
+			padding: 0.416vh 0.78vw; /* 3px/720px, 10px/1280px */
 			border-radius: 12px;
-			font-size: 12px;
-			margin-right: 5px;
+			font-size: 0.9375vw; /* 12px/1280px */
+			max-font-size: 12px;
+			margin-right: 0.39vw; /* 5px/1280px */
 			color: white;
 		}
 		.pro-tag {
@@ -84,10 +98,67 @@
 		}
 		.footer {
 			position: absolute;
-			bottom: 30px;
-			left: 100px;
-			font-size: 14px;
+			bottom: 4.16vh; /* 30px / 720px */
+			left: 7.8vw; /* 100px / 1280px */
+			font-size: 1.09vw; /* 14px / 1280px */
+			max-font-size: 14px;
 			color: #666;
+		}
+
+		/* Responsive font sizes and spacing */
+		h1.text-3xl {
+			font-size: 2.34vw; /* 30px / 1280px */
+			max-font-size: 30px;
+		}
+		p.text-gray-600.mt-2 {
+			font-size: 1.25vw; /* 16px / 1280px */
+			max-font-size: 16px;
+			margin-top: 0.27vh; /* 2px / 720px */
+		}
+		.content-area {
+			padding-left: 7.8vw; /* 100px / 1280px */
+			padding-right: 7.8vw; /* 100px / 1280px */
+			margin-top: 1.11vh; /* 8px / 720px */
+		}
+		.content-area .grid {
+			gap: 0.78vw; /* 10px / 1280px */
+		}
+		.company-card.p-6 {
+			padding: 0.83vh 0.46vw; /* 6px/720px, 6px/1280px */
+		}
+		.company-card .mb-4 {
+			margin-bottom: 0.55vh; /* 4px / 720px */
+		}
+		.company-card .w-12 {
+			width: 3.9vw; /* 12px / 1280px */
+			height: 5.55vh; /* 12px / 720px */
+		}
+		.company-card .mr-4 {
+			margin-right: 0.31vw; /* 4px / 1280px */
+		}
+		.company-card .text-xl {
+			font-size: 1.56vw; /* 20px / 1280px */
+			max-font-size: 20px;
+		}
+		.company-card h2.text-2xl {
+			font-size: 1.875vw; /* 24px / 1280px */
+			max-font-size: 24px;
+		}
+		.company-card ul.space-y-4 {
+			margin-top: 0.83vh; /* 6px / 720px */
+		}
+		.company-card ul.space-y-3 {
+			margin-top: 0.83vh; /* 6px / 720px */
+		}
+		.company-card ul li .mt-1 {
+			margin-top: 0.13vh; /* 1px / 720px */
+		}
+		.company-card ul li .mr-3 {
+			margin-right: 0.23vw; /* 3px / 1280px */
+		}
+		.company-card ul li p.text-sm {
+			font-size: 0.9375vw; /* 12px / 1280px */
+			max-font-size: 12px;
 		}
 	</style>
 </head>
@@ -96,83 +167,83 @@
 	<div class="accent-bar"></div>
 
 	<div class="title-bar">
-		<h1 class="text-3xl font-bold text-gray-800">하나금융지주 계열사별 테니스 대회 개요</h1>
-		<p class="text-gray-600 mt-2">2024-2025년 하나은행, 하나증권의 주요 테니스 스폰서십 및 대회 현황</p>
+		<h1 class="text-3xl font-bold text-gray-800" style="font-size: 2.34vw; max-font-size: 30px;">하나금융지주 계열사별 테니스 대회 개요</h1>
+		<p class="text-gray-600 mt-2" style="font-size: 1.25vw; max-font-size: 16px;">2024-2025년 하나은행, 하나증권의 주요 테니스 스폰서십 및 대회 현황</p>
 	</div>
 
-	<div class="content-area px-20 mt-8">
-		<div class="grid grid-cols-2 gap-10">
+	<div class="content-area px-20 mt-8" style="padding-left: 7.8vw; padding-right: 7.8vw; margin-top: 1.11vh;">
+		<div class="grid grid-cols-2 gap-10" style="gap: 0.78vw;">
 			<!-- 하나은행 테니스 대회 -->
-			<div class="company-card p-6">
-				<div class="flex items-center mb-4">
-					<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mr-4">
-						<i class="fas fa-landmark text-xl text-green-600"></i>
+			<div class="company-card p-6" style="padding: 0.83vh 0.46vw;">
+				<div class="flex items-center mb-4" style="margin-bottom: 0.55vh;">
+					<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mr-4" style="width: 3.9vw; height: 5.55vh; margin-right: 0.31vw;">
+						<i class="fas fa-landmark text-xl text-green-600" style="font-size: 1.56vw; max-font-size: 20px;"></i>
 					</div>
-					<h2 class="text-2xl font-bold text-gray-800">하나은행</h2>
+					<h2 class="text-2xl font-bold text-gray-800" style="font-size: 1.875vw; max-font-size: 24px;">하나은행</h2>
 				</div>
 
-				<ul class="space-y-4 mt-6">
+				<ul class="space-y-4 mt-6" style="margin-top: 0.83vh;">
 					<li class="flex items-start">
-						<i class="fas fa-trophy text-yellow-500 mt-1 mr-3"></i>
+						<i class="fas fa-trophy text-yellow-500 mt-1 mr-3" style="margin-top: 0.13vh; margin-right: 0.23vw;"></i>
 						<div>
 							<div>
 								<span class="event-tag pro-tag">프로대회</span>
 								<span class="font-semibold">WTA 하나은행 코리아오픈</span>
 							</div>
-							<p class="text-sm text-gray-600 mt-1">2024년 9월 14일~22일 / 올림픽공원 테니스코트<br>WTA 500 대회로 승격, 세계 여자 프로테니스 정규 투어</p>
+							<p class="text-sm text-gray-600 mt-1" style="font-size: 0.9375vw; max-font-size: 12px; margin-top: 0.13vh;">2024년 9월 14일~22일 / 올림픽공원 테니스코트<br>WTA 500 대회로 승격, 세계 여자 프로테니스 정규 투어</p>
 						</div>
 					</li>
 					<li class="flex items-start">
-						<i class="fas fa-medal text-blue-500 mt-1 mr-3"></i>
+						<i class="fas fa-medal text-blue-500 mt-1 mr-3" style="margin-top: 0.13vh; margin-right: 0.23vw;"></i>
 						<div>
 							<div>
 								<span class="event-tag amateur-tag">동호인대회</span>
 								<span class="font-semibold">하나은행컵 KATA 투어</span>
 							</div>
-							<p class="text-sm text-gray-600 mt-1">2022년 11월 9일 개최 / 전국 테니스 동호인 618팀 참가<br>한국테니스진흥협회(KATA) 공동 주최</p>
+							<p class="text-sm text-gray-600 mt-1" style="font-size: 0.9375vw; max-font-size: 12px; margin-top: 0.13vh;">2022년 11월 9일 개최 / 전국 테니스 동호인 618팀 참가<br>한국테니스진흥협회(KATA) 공동 주최</p>
 						</div>
 					</li>
 				</ul>
 			</div>
 
 			<!-- 하나증권 테니스 대회 -->
-			<div class="company-card hana-securities p-6">
-				<div class="flex items-center mb-4">
-					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-						<i class="fas fa-chart-line text-xl text-blue-600"></i>
+			<div class="company-card hana-securities p-6" style="padding: 0.83vh 0.46vw;">
+				<div class="flex items-center mb-4" style="margin-bottom: 0.55vh;">
+					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4" style="width: 3.9vw; height: 5.55vh; margin-right: 0.31vw;">
+						<i class="fas fa-chart-line text-xl text-blue-600" style="font-size: 1.56vw; max-font-size: 20px;"></i>
 					</div>
-					<h2 class="text-2xl font-bold text-gray-800">하나증권</h2>
+					<h2 class="text-2xl font-bold text-gray-800" style="font-size: 1.875vw; max-font-size: 24px;">하나증권</h2>
 				</div>
 
-				<ul class="space-y-3 mt-6">
+				<ul class="space-y-3 mt-6" style="margin-top: 0.83vh;">
 					<li class="flex items-start">
-						<i class="fas fa-trophy text-yellow-500 mt-1 mr-3"></i>
+						<i class="fas fa-trophy text-yellow-500 mt-1 mr-3" style="margin-top: 0.13vh; margin-right: 0.23vw;"></i>
 						<div>
 							<div>
 								<span class="event-tag pro-tag">프로/주니어</span>
 								<span class="font-semibold">하나증권 전국종별테니스대회</span>
 							</div>
-							<p class="text-sm text-gray-600 mt-1">2024년 3월 / 경북 김천 / 2025년 6월 / 10세부, 12세부, 14세부</p>
+							<p class="text-sm text-gray-600 mt-1" style="font-size: 0.9375vw; max-font-size: 12px; margin-top: 0.13vh;">2024년 3월 / 경북 김천 / 2025년 6월 / 10세부, 12세부, 14세부</p>
 						</div>
 					</li>
 					<li class="flex items-start">
-						<i class="fas fa-medal text-blue-500 mt-1 mr-3"></i>
+						<i class="fas fa-medal text-blue-500 mt-1 mr-3" style="margin-top: 0.13vh; margin-right: 0.23vw;"></i>
 						<div>
 							<div>
 								<span class="event-tag amateur-tag">동호인대회</span>
 								<span class="font-semibold">하나증권 테니스 챔피언십</span>
 							</div>
-							<p class="text-sm text-gray-600 mt-1">2024년 6월, 2025년 5월 3일~6일 / 올림픽공원, 육군사관학교<br>테니스타운(앱) 통해 참가신청 / 1,300여명 참가 / 2,410만원 상금</p>
+							<p class="text-sm text-gray-600 mt-1" style="font-size: 0.9375vw; max-font-size: 12px; margin-top: 0.13vh;">2024년 6월, 2025년 5월 3일~6일 / 올림픽공원, 육군사관학교<br>테니스타운(앱) 통해 참가신청 / 1,300여명 참가 / 2,410만원 상금</p>
 						</div>
 					</li>
 					<li class="flex items-start">
-						<i class="fas fa-globe text-green-500 mt-1 mr-3"></i>
+						<i class="fas fa-globe text-green-500 mt-1 mr-3" style="margin-top: 0.13vh; margin-right: 0.23vw;"></i>
 						<div>
 							<div>
 								<span class="event-tag pro-tag">국제주니어</span>
 								<span class="font-semibold">ITF 하나증권 양구국제주니어테니스대회</span>
 							</div>
-							<p class="text-sm text-gray-600 mt-1">2025년 4월 27일~5월 4일 / 양구테니스파크 / ITF J60 등급</p>
+							<p class="text-sm text-gray-600 mt-1" style="font-size: 0.9375vw; max-font-size: 12px; margin-top: 0.13vh;">2025년 4월 27일~5월 4일 / 양구테니스파크 / ITF J60 등급</p>
 						</div>
 					</li>
 				</ul>
