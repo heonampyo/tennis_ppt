@@ -13,60 +13,68 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
 			background-color: #f0f0f0;
 		}
 		.slide-container {
-			width: 90vw; /* Use viewport width */
-			max-width: 1280px; /* Maximum width */
-			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+			width: 100vw;
+			height: 100vh;
+			box-sizing: border-box;
 			position: relative;
 			background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 			overflow: hidden;
-		}
-		@media (max-aspect-ratio: 16/9) {
-			.slide-container {
-				height: 90vh; /* Use viewport height if aspect ratio is narrower */
-				width: auto; /* Let width adjust based on height */
-			}
+			padding: 5vh 6vw;
+			display: flex;
+			flex-direction: column;
 		}
 		.accent-bar {
 			position: absolute;
 			width: 100%;
-			height: 8px;
+			height: 1.2vh;
 			background: linear-gradient(90deg, #00857d 0%, #0078c1 100%);
 			top: 0;
 			left: 0;
 		}
-		.logo {
-			position: absolute;
-			top: 4.16vh; /* 30px / 720px */
-			right: 3.9vw; /* 50px / 1280px */
-			width: 11.7vw; /* 150px / 1280px */
-			max-width: 150px;
-		}
 		.title-bar {
-			padding: 4.16vh 0 2.77vh 7.8vw; /* 30px/720px, 20px/720px, 100px/1280px */
 			position: relative;
+			padding-bottom: 2vh;
+			margin-bottom: 2vh;
 		}
 		.title-bar:after {
 			content: '';
 			position: absolute;
 			bottom: 0;
-			left: 7.8vw; /* 100px/1280px */
-			width: 6.25vw; /* 80px/1280px */
-			height: 4px;
+			left: 0;
+			width: 8vw;
+			max-width: 100px;
+			height: 5px;
 			background-color: #0078c1;
+		}
+		.title-bar h1 {
+			font-size: clamp(22px, 3.2vw, 36px);
+			font-weight: 700;
+			color: #333;
+		}
+		.title-bar p {
+			font-size: clamp(14px, 1.7vw, 18px);
+			color: #555;
+			margin-top: 1vh;
+		}
+		.content-area {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3vw;
+			flex-grow: 1;
+			overflow: auto;
 		}
 		.tournament-card {
 			background-color: white;
 			border-radius: 10px;
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+			padding: 2.5vh 2vw;
 			position: relative;
 			overflow: hidden;
+			display: flex;
+			flex-direction: column;
 		}
 		.tournament-card:before {
 			content: '';
@@ -76,139 +84,130 @@
 			width: 8px;
 			height: 100%;
 		}
-		.securities-card:before {
-			background-color: #0078c1;
+		.securities-card:before { background-color: #0078c1; }
+		.bank-card:before { background-color: #00857d; }
+		.card-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 2vh;
 		}
-		.bank-card:before {
-			background-color: #00857d;
+		.card-icon {
+			width: 4.5vw;
+			height: 4.5vw;
+			max-width: 45px;
+			max-height: 45px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 1.5vw;
+			flex-shrink: 0;
 		}
+		.card-icon i { font-size: clamp(18px, 2.2vw, 24px); }
+		.card-title h2 {
+			font-size: clamp(18px, 2.2vw, 26px);
+			font-weight: 700;
+			color: #333;
+		}
+		.badge-container { margin-top: 0.5vh; }
 		.badge {
 			display: inline-block;
-			padding: 0.55vh 0.9375vw; /* 4px/720px, 12px/1280px */
+			padding: 0.6vh 1.2vw;
 			border-radius: 16px;
-			font-size: 1.01vw; /* 13px/1280px */
-			max-font-size: 13px;
-			margin-right: 0.625vw; /* 8px/1280px */
+			font-size: clamp(11px, 1.1vw, 13px);
+			margin-right: 0.5vw;
 			color: white;
+			font-weight: 500;
 		}
-		.badge-blue {
-			background-color: #0078c1;
+		.badge-blue { background-color: #0078c1; }
+		.badge-green { background-color: #00857d; }
+		.badge-subtitle {
+			font-size: clamp(11px, 1.1vw, 13px);
+			color: #555;
 		}
-		.badge-green {
-			background-color: #00857d;
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5vw;
+			margin-bottom: 2vh;
 		}
 		.stat-box {
 			border-radius: 8px;
-			padding: 1.66vh 0.9375vw; /* 12px/720px, 12px/1280px */
+			padding: 1.5vh 1vw;
 			text-align: center;
 		}
-		.stat-box-blue {
-			background-color: rgba(0, 120, 193, 0.1);
+		.stat-box-blue { background-color: rgba(0, 120, 193, 0.08); }
+		.stat-box-green { background-color: rgba(0, 133, 125, 0.08); }
+		.stat-box .label {
+			font-size: clamp(11px, 1.1vw, 13px);
+			color: #555;
 		}
-		.stat-box-green {
-			background-color: rgba(0, 133, 125, 0.1);
+		.stat-box .value {
+			font-size: clamp(14px, 1.6vw, 18px);
+			font-weight: 700;
+			color: #333;
+			margin-top: 0.5vh;
 		}
-		.footer {
-			position: absolute;
-			bottom: 4.16vh; /* 30px / 720px */
-			left: 7.8vw; /* 100px / 1280px */
-			font-size: 1.09vw; /* 14px / 1280px */
-			max-font-size: 14px;
-			color: #666;
+		.features-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
 		}
 		.feature-item {
 			display: flex;
 			align-items: flex-start;
-			margin-bottom: 1.66vh; /* 12px/720px */
+			margin-bottom: 1.5vh;
 		}
 		.feature-item i {
-			width: 1.875vw; /* 24px/1280px */
-			margin-right: 0.78vw; /* 10px/1280px */
-			margin-top: 0.55vh; /* 4px/720px */
-			color: #00857d;
+			width: 24px;
+			margin-right: 1vw;
+			margin-top: 0.3vh;
+			font-size: clamp(14px, 1.5vw, 16px);
 		}
-		.feature-item-blue i {
-			color: #0078c1;
+		.feature-item-blue i { color: #0078c1; }
+		.feature-item-green i { color: #00857d; }
+		.feature-details .title {
+			font-weight: 600;
+			font-size: clamp(13px, 1.4vw, 16px);
+			color: #444;
 		}
-		.feature-item-green i {
-			color: #00857d;
+		.feature-details .description {
+			font-size: clamp(12px, 1.2vw, 14px);
+			color: #666;
+			line-height: 1.4;
 		}
+		.partner-tags { margin-top: 0.5vh; }
 		.partner-tag {
 			display: inline-block;
-			padding: 0.416vh 0.625vw; /* 3px/720px, 8px/1280px */
+			padding: 0.4vh 1vw;
 			border-radius: 4px;
-			font-size: 0.9375vw; /* 12px/1280px */
-			max-font-size: 12px;
-			margin-right: 0.31vw; /* 4px/1280px */
-			margin-bottom: 0.55vh; /* 4px/720px */
+			font-size: clamp(10px, 1vw, 12px);
+			margin-right: 0.5vw;
+			margin-bottom: 0.5vh;
 			color: white;
 			background-color: #6B7280;
 		}
-
-		/* Font sizes */
-		h1.text-3xl {
-			font-size: 2.34vw; /* 30px/1280px */
-			max-font-size: 30px;
+		.chart-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1vw;
+			margin-top: 1vh;
 		}
-		p.text-gray-600.mt-2 {
-			font-size: 1.25vw; /* 16px/1280px */
-			max-font-size: 16px;
+		.chart-box {
+			background-color: white;
+			padding: 1vh 1.2vw;
+			border-radius: 8px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 		}
-		h2.text-2xl {
-			font-size: 1.875vw; /* 24px/1280px */
-			max-font-size: 24px;
+		.chart-box .label {
+			font-size: clamp(10px, 1vw, 12px);
+			text-align: center;
+			color: #555;
 		}
-		.text-sm {
-			font-size: 0.9375vw; /* 12px/1280px */
-			max-font-size: 12px;
-		}
-		.text-lg {
-			font-size: 1.4vw; /* 18px/1280px */
-			max-font-size: 18px;
-		}
-		.text-xl {
-			font-size: 1.56vw; /* 20px/1280px */
-			max-font-size: 20px;
-		}
-		.text-xs {
-			font-size: 0.78vw; /* 10px/1280px */
-			max-font-size: 10px;
-		}
-		.content-area {
-			padding-left: 7.8vw; /* 100px/1280px */
-			padding-right: 7.8vw; /* 100px/1280px */
-			margin-top: 0.83vh; /* 6px/720px */
-		}
-		.content-area .grid {
-			gap: 0.625vw; /* 8px/1280px */
-		}
-		.w-12 {
-			width: 3.9vw; /* 12px/1280px */
-			height: 5.55vh; /* 12px/720px */
-		}
-		.mr-4 {
-			margin-right: 0.31vw; /* 4px/1280px */
-		}
-		.mt-1 {
-			margin-top: 0.13vh; /* 1px/720px */
-		}
-		.mb-5 {
-			margin-bottom: 0.69vh; /* 5px/720px */
-		}
-		.mb-4 {
-			margin-bottom: 0.55vh; /* 4px/720px */
-		}
-		.mt-4 {
-			margin-top: 0.55vh; /* 4px/720px */
-		}
-		.gap-3 {
-			gap: 0.23vw; /* 3px/1280px */
-		}
-		.mt-2 {
-			margin-top: 0.27vh; /* 2px/720px */
-		}
-		.p-2 {
-			padding: 0.27vh 0.15vw; /* 2px/720px, 2px/1280px */
+		.chart-box .value {
+			font-size: clamp(12px, 1.3vw, 15px);
+			text-align: center;
+			font-weight: 600;
 		}
 	</style>
 </head>
@@ -217,156 +216,151 @@
 	<div class="accent-bar"></div>
 
 	<div class="title-bar">
-		<h1 class="text-3xl font-bold text-gray-800">동호인 대회 상세 분석</h1>
-		<p class="text-gray-600 mt-2">하나금융지주 계열사가 주최 및 후원하는 주요 동호인 테니스 대회와 파트너십 현황</p>
+		<h1>동호인 대회 상세 분석</h1>
+		<p>하나금융지주 계열사가 주최 및 후원하는 주요 동호인 테니스 대회와 파트너십 현황</p>
 	</div>
 
-	<div class="content-area px-20 mt-6">
-		<div class="grid grid-cols-2 gap-8">
-			<!-- 하나증권 테니스 챔피언십 -->
-			<div class="tournament-card securities-card p-6">
-				<div class="flex items-center mb-4">
-					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-						<i class="fas fa-medal text-xl text-blue-600"></i>
-					</div>
-					<div>
-						<h2 class="text-2xl font-bold text-gray-800">하나증권 테니스 챔피언십</h2>
-						<div class="mt-1">
-							<span class="badge badge-blue">동호인 대회</span>
-							<span class="text-sm text-gray-500">국내 최대 규모 아마추어 대회</span>
-						</div>
+	<div class="content-area">
+		<!-- 하나증권 테니스 챔피언십 -->
+		<div class="tournament-card securities-card">
+			<div class="card-header">
+				<div class="card-icon bg-blue-50">
+					<i class="fas fa-medal text-blue-600"></i>
+				</div>
+				<div class="card-title">
+					<h2>하나증권 테니스 챔피언십</h2>
+					<div class="badge-container">
+						<span class="badge badge-blue">동호인 대회</span>
+						<span class="badge-subtitle">국내 최대 규모 아마추어 대회</span>
 					</div>
 				</div>
+			</div>
 
-				<div class="grid grid-cols-3 gap-4 mb-5">
-					<div class="stat-box stat-box-blue">
-						<p class="text-sm text-gray-500">2024년 대회</p>
-						<p class="text-lg font-bold text-gray-800">6월 / 1,500명</p>
-					</div>
-					<div class="stat-box stat-box-blue">
-						<p class="text-sm text-gray-500">2025년 대회</p>
-						<p class="text-lg font-bold text-gray-800">5.3~5.6 / 1,300명</p>
-					</div>
-					<div class="stat-box stat-box-blue">
-						<p class="text-sm text-gray-500">총 상금</p>
-						<p class="text-lg font-bold text-gray-800">2,410만원</p>
-					</div>
+			<div class="stats-grid">
+				<div class="stat-box stat-box-blue">
+					<p class="label">2024년 대회</p>
+					<p class="value">6월 / 1,500명</p>
 				</div>
+				<div class="stat-box stat-box-blue">
+					<p class="label">2025년 대회</p>
+					<p class="value">5.3~5.6 / 1,300명</p>
+				</div>
+				<div class="stat-box stat-box-blue">
+					<p class="label">총 상금</p>
+					<p class="value">2,410만원</p>
+				</div>
+			</div>
 
-				<div class="feature-item feature-item-blue">
+			<ul class="features-list">
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-map-marker-alt"></i>
-					<div>
-						<span class="font-semibold">개최 장소</span>
-						<p class="text-sm text-gray-600">올림픽공원 테니스코트, 육군사관학교 테니스코트</p>
+					<div class="feature-details">
+						<span class="title">개최 장소</span>
+						<p class="description">올림픽공원 테니스코트, 육군사관학교 테니스코트</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-blue">
+				</li>
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-users"></i>
-					<div>
-						<span class="font-semibold">참가 형태 및 등급</span>
-						<p class="text-sm text-gray-600">남자복식, 여자복식, 단체전 형식 / 아이언, 브론즈 등 구력별 등급 구분</p>
+					<div class="feature-details">
+						<span class="title">참가 형태 및 등급</span>
+						<p class="description">남자복식, 여자복식, 단체전 형식 / 아이언, 브론즈 등 구력별 등급 구분</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-blue">
+				</li>
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-handshake"></i>
-					<div>
-						<span class="font-semibold">파트너 업체</span>
-						<div class="mt-1">
+					<div class="feature-details">
+						<span class="title">파트너 업체</span>
+						<div class="partner-tags">
 							<span class="partner-tag">테니스타운</span>
 							<span class="partner-tag">대한테니스협회(KTA)</span>
 						</div>
-						<p class="text-sm text-gray-600 mt-1">테니스타운 앱을 통한 참가 신청 / KTA 공식 스폰서십</p>
+						<p class="description">테니스타운 앱을 통한 참가 신청 / KTA 공식 스폰서십</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-blue">
+				</li>
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-chart-line"></i>
-					<div>
-						<span class="font-semibold">성과 및 특징</span>
-						<p class="text-sm text-gray-600">2024년 688개 팀, 2025년 672개 팀 참가 / 전국 규모 아마추어 테니스 대회 중 최대 규모</p>
+					<div class="feature-details">
+						<span class="title">성과 및 특징</span>
+						<p class="description">2024년 688개 팀, 2025년 672개 팀 참가 / 전국 규모 아마추어 테니스 대회 중 최대 규모</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 하나은행컵 KATA 투어 -->
+		<div class="tournament-card bank-card">
+			<div class="card-header">
+				<div class="card-icon bg-green-50">
+					<i class="fas fa-trophy text-green-600"></i>
+				</div>
+				<div class="card-title">
+					<h2>하나은행컵 KATA 투어</h2>
+					<div class="badge-container">
+						<span class="badge badge-green">동호인 대회</span>
+						<span class="badge-subtitle">한국테니스진흥협회 공동 주최</span>
 					</div>
 				</div>
 			</div>
 
-			<!-- 하나은행컵 KATA 투어 -->
-			<div class="tournament-card bank-card p-6">
-				<div class="flex items-center mb-4">
-					<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mr-4">
-						<i class="fas fa-trophy text-xl text-green-600"></i>
-					</div>
-					<div>
-						<h2 class="text-2xl font-bold text-gray-800">하나은행컵 KATA 투어</h2>
-						<div class="mt-1">
-							<span class="badge badge-green">동호인 대회</span>
-							<span class="text-sm text-gray-500">한국테니스진흥협회 공동 주최</span>
-						</div>
-					</div>
+			<div class="stats-grid">
+				<div class="stat-box stat-box-green">
+					<p class="label">최근 개최</p>
+					<p class="value">2022.11.9</p>
 				</div>
-
-				<div class="grid grid-cols-3 gap-4 mb-5">
-					<div class="stat-box stat-box-green">
-						<p class="text-sm text-gray-500">최근 개최</p>
-						<p class="text-lg font-bold text-gray-800">2022.11.9</p>
-					</div>
-					<div class="stat-box stat-box-green">
-						<p class="text-sm text-gray-500">참가 팀</p>
-						<p class="text-lg font-bold text-gray-800">618팀</p>
-					</div>
-					<div class="stat-box stat-box-green">
-						<p class="text-sm text-gray-500">참가 인원</p>
-						<p class="text-lg font-bold text-gray-800">1,236명</p>
-					</div>
+				<div class="stat-box stat-box-green">
+					<p class="label">참가 팀</p>
+					<p class="value">618팀</p>
 				</div>
+				<div class="stat-box stat-box-green">
+					<p class="label">참가 인원</p>
+					<p class="value">1,236명</p>
+				</div>
+			</div>
 
-				<div class="feature-item feature-item-green">
+			<ul class="features-list">
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-sitemap"></i>
-					<div>
-						<span class="font-semibold">대회 구조</span>
-						<p class="text-sm text-gray-600">복식 경기 위주로 진행 / 신인부, 베테랑부 등 참가자 기량과 연령에 따라 구분</p>
+					<div class="feature-details">
+						<span class="title">대회 구조</span>
+						<p class="description">복식 경기 위주로 진행 / 신인부, 베테랑부 등 참가자 기량과 연령에 따라 구분</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-green">
+				</li>
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-handshake"></i>
-					<div>
-						<span class="font-semibold">파트너 업체</span>
-						<div class="mt-1">
+					<div class="feature-details">
+						<span class="title">파트너 업체</span>
+						<div class="partner-tags">
 							<span class="partner-tag">한국테니스진흥협회(KATA)</span>
 						</div>
-						<p class="text-sm text-gray-600 mt-1">KATA와 공동 주최 / 국내 테니스 생활체육 활성화 목표</p>
+						<p class="description">KATA와 공동 주최 / 국내 테니스 생활체육 활성화 목표</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-green mt-4">
+				</li>
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-chart-pie"></i>
-					<div>
-						<span class="font-semibold">동호인 대회 참가자 분포 및 특징</span>
-						<div class="grid grid-cols-2 gap-3 mt-2">
-							<div class="bg-white p-2 rounded-lg shadow-sm">
-								<p class="text-xs text-center text-gray-500">성별 분포</p>
-								<p class="text-center text-sm">남성 58% | 여성 42%</p>
+					<div class="feature-details">
+						<span class="title">동호인 대회 참가자 분포 및 특징</span>
+						<div class="chart-grid">
+							<div class="chart-box">
+								<p class="label">성별 분포</p>
+								<p class="value">남성 58% | 여성 42%</p>
 							</div>
-							<div class="bg-white p-2 rounded-lg shadow-sm">
-								<p class="text-xs text-center text-gray-500">연령대</p>
-								<p class="text-center text-sm">30대 35% | 40대 45% | 기타 20%</p>
+							<div class="chart-box">
+								<p class="label">연령대</p>
+								<p class="value">30대 35% | 40대 45%</p>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-green">
+				</li>
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-calendar-alt"></i>
-					<div>
-						<span class="font-semibold">향후 개최 전망</span>
-						<p class="text-sm text-gray-600">2025년 하반기 KATA 투어 추가 개최 가능성 / 전국 규모 동호인 대회 확대 예상</p>
+					<div class="feature-details">
+						<span class="title">향후 개최 전망</span>
+						<p class="description">2025년 하반기 KATA 투어 추가 개최 가능성 / 전국 규모 동호인 대회 확대 예상</p>
 					</div>
-				</div>
-			</div>
+				</li>
+			</ul>
 		</div>
 	</div>
-
 </div>
 </body>
 </html>

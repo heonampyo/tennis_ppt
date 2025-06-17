@@ -13,61 +13,68 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
 			background-color: #f0f0f0;
 		}
 		.slide-container {
-			width: 90vw; /* Use viewport width */
-			max-width: 1280px; /* Maximum width */
-			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+			width: 100vw;
+			height: 100vh;
+			box-sizing: border-box;
 			position: relative;
 			background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 			overflow: hidden;
-		}
-		@media (max-aspect-ratio: 16/9) {
-			.slide-container {
-				height: 90vh; /* Use viewport height if aspect ratio is narrower */
-				width: auto; /* Let width adjust based on height */
-			}
+			padding: 5vh 6vw;
+			display: flex;
+			flex-direction: column;
 		}
 		.accent-bar {
 			position: absolute;
 			width: 100%;
-			height: 8px;
+			height: 1.2vh;
 			background: linear-gradient(90deg, #00857d 0%, #0078c1 100%);
 			top: 0;
 			left: 0;
 		}
-		.logo {
-			position: absolute;
-			top: 4.16vh; /* 30px / 720px */
-			right: 3.9vw; /* 50px / 1280px */
-			width: 11.7vw; /* 150px / 1280px */
-			max-width: 150px;
-		}
 		.title-bar {
-			padding: 4.16vh 0 2.77vh 7.8vw; /* 30px/720px, 20px/720px, 100px/1280px */
 			position: relative;
+			padding-bottom: 2vh;
+			margin-bottom: 2vh;
 		}
 		.title-bar:after {
 			content: '';
 			position: absolute;
 			bottom: 0;
-			left: 7.8vw; /* 100px/1280px */
-			width: 6.25vw; /* 80px/1280px */
-			height: 4px;
+			left: 0;
+			width: 8vw;
+			max-width: 100px;
+			height: 5px;
 			background-color: #00857d;
 		}
-		.footer {
-			position: absolute;
-			bottom: 4.16vh; /* 30px / 720px */
-			left: 7.8vw; /* 100px / 1280px */
-			font-size: 1.09vw; /* 14px / 1280px */
-			max-font-size: 14px;
-			color: #666;
+		.title-bar h1 {
+			font-size: clamp(22px, 3.2vw, 36px);
+			font-weight: 700;
+			color: #333;
+		}
+		.title-bar p {
+			font-size: clamp(14px, 1.7vw, 18px);
+			color: #555;
+			margin-top: 1vh;
+		}
+		.content-area {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3vw;
+			flex-grow: 1;
+			overflow: auto;
+		}
+		.tournament-card {
+			background-color: white;
+			border-radius: 10px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+			padding: 2.5vh 2vw;
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
 		}
 		.tournament-card:before {
 			content: '';
@@ -77,96 +84,97 @@
 			width: 8px;
 			height: 100%;
 		}
-		.bank-card:before {
-			background-color: #00857d;
+		.bank-card:before { background-color: #00857d; }
+		.securities-card:before { background-color: #0078c1; }
+		.card-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 2vh;
 		}
-		.securities-card:before {
-			background-color: #0078c1;
+		.card-icon {
+			width: 4.5vw;
+			height: 4.5vw;
+			max-width: 45px;
+			max-height: 45px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 1.5vw;
+			flex-shrink: 0;
 		}
+		.card-icon i { font-size: clamp(18px, 2.2vw, 24px); }
+		.card-title h2 {
+			font-size: clamp(18px, 2.2vw, 26px);
+			font-weight: 700;
+			color: #333;
+		}
+		.badge-container { margin-top: 0.5vh; }
 		.badge {
 			display: inline-block;
-			padding: 0.55vh 0.9375vw; /* 4px/720px, 12px/1280px */
+			padding: 0.6vh 1.2vw;
 			border-radius: 16px;
-			font-size: 1.01vw; /* 13px/1280px */
-			max-font-size: 13px;
-			margin-right: 0.625vw; /* 8px/1280px */
+			font-size: clamp(11px, 1.1vw, 13px);
+			margin-right: 0.5vw;
 			color: white;
-			background-color: #00857d;
+			font-weight: 500;
 		}
-		.badge-blue {
-			background-color: #0078c1;
+		.badge-green { background-color: #00857d; }
+		.badge-blue { background-color: #0078c1; }
+		.badge-subtitle {
+			font-size: clamp(11px, 1.1vw, 13px);
+			color: #555;
+		}
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5vw;
+			margin-bottom: 2vh;
 		}
 		.stat-box {
-			background-color: rgba(0, 133, 125, 0.1);
 			border-radius: 8px;
-			padding: 2.08vh 1.17vw; /* 15px/720px, 15px/1280px */
+			padding: 1.5vh 1vw;
 			text-align: center;
 		}
-		.stat-box-blue {
-			background-color: rgba(0, 120, 193, 0.1);
+		.stat-box-green { background-color: rgba(0, 133, 125, 0.08); }
+		.stat-box-blue { background-color: rgba(0, 120, 193, 0.08); }
+		.stat-box .label {
+			font-size: clamp(11px, 1.1vw, 13px);
+			color: #555;
+		}
+		.stat-box .value {
+			font-size: clamp(14px, 1.6vw, 18px);
+			font-weight: 700;
+			color: #333;
+			margin-top: 0.5vh;
+		}
+		.features-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
 		}
 		.feature-item {
 			display: flex;
-			align-items: center;
-			margin-bottom: 1.66vh; /* 12px/720px */
+			align-items: flex-start;
+			margin-bottom: 1.5vh;
 		}
 		.feature-item i {
-			width: 1.875vw; /* 24px/1280px */
-			margin-right: 0.78vw; /* 10px/1280px */
-			color: #00857d;
+			width: 24px;
+			margin-right: 1vw;
+			margin-top: 0.3vh;
+			font-size: clamp(14px, 1.5vw, 16px);
 		}
-		.feature-item-blue i {
-			color: #0078c1;
+		.feature-item-green i { color: #00857d; }
+		.feature-item-blue i { color: #0078c1; }
+		.feature-details .title {
+			font-weight: 600;
+			font-size: clamp(13px, 1.4vw, 16px);
+			color: #444;
 		}
-
-		/* Font sizes */
-		h1.text-3xl {
-			font-size: 2.34vw; /* 30px/1280px */
-			max-font-size: 30px;
-		}
-		p.text-gray-600.mt-2 {
-			font-size: 1.25vw; /* 16px/1280px */
-			max-font-size: 16px;
-		}
-		h2.text-2xl {
-			font-size: 1.875vw; /* 24px/1280px */
-			max-font-size: 24px;
-		}
-		.text-sm {
-			font-size: 0.9375vw; /* 12px/1280px */
-			max-font-size: 12px;
-		}
-		.text-lg {
-			font-size: 1.4vw; /* 18px/1280px */
-			max-font-size: 18px;
-		}
-		.text-xl {
-			font-size: 1.56vw; /* 20px/1280px */
-			max-font-size: 20px;
-		}
-		.content-area {
-			padding-left: 7.8vw; /* 100px/1280px */
-			padding-right: 7.8vw; /* 100px/1280px */
-			margin-top: 0.83vh; /* 6px/720px */
-		}
-		.content-area .grid {
-			gap: 0.625vw; /* 8px/1280px */
-		}
-		.w-12 {
-			width: 3.9vw; /* 12px/1280px */
-			height: 5.55vh; /* 12px/720px */
-		}
-		.mr-4 {
-			margin-right: 0.31vw; /* 4px/1280px */
-		}
-		.mt-1 {
-			margin-top: 0.13vh; /* 1px/720px */
-		}
-		.mb-6 {
-			margin-bottom: 0.83vh; /* 6px/720px */
-		}
-		.gap-4 {
-			gap: 0.31vw; /* 4px/1280px */
+		.feature-details .description {
+			font-size: clamp(12px, 1.2vw, 14px);
+			color: #666;
+			line-height: 1.4;
 		}
 	</style>
 </head>
@@ -175,131 +183,128 @@
 	<div class="accent-bar"></div>
 
 	<div class="title-bar">
-		<h1 class="text-3xl font-bold text-gray-800">프로 선수 대회 상세 분석</h1>
-		<p class="text-gray-600 mt-2">하나금융지주 계열사가 주최 및 후원하는 주요 프로 및 주니어 테니스 대회</p>
+		<h1>프로 선수 대회 상세 분석</h1>
+		<p>하나금융지주 계열사가 주최 및 후원하는 주요 프로 및 주니어 테니스 대회</p>
 	</div>
 
-	<div class="content-area px-20 mt-6">
-		<div class="grid grid-cols-2 gap-8">
-			<!-- WTA 하나은행 코리아오픈 -->
-			<div class="tournament-card bank-card p-6">
-				<div class="flex items-center mb-4">
-					<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mr-4">
-						<i class="fas fa-trophy text-xl text-green-600"></i>
-					</div>
-					<div>
-						<h2 class="text-2xl font-bold text-gray-800">WTA 하나은행 코리아오픈</h2>
-						<div class="mt-1">
-							<span class="badge">WTA 500</span>
-							<span class="text-sm text-gray-500">국내 유일 WTA 정규투어</span>
-						</div>
+	<div class="content-area">
+		<!-- WTA 하나은행 코리아오픈 -->
+		<div class="tournament-card bank-card">
+			<div class="card-header">
+				<div class="card-icon bg-green-50">
+					<i class="fas fa-trophy text-green-600"></i>
+				</div>
+				<div class="card-title">
+					<h2>WTA 하나은행 코리아오픈</h2>
+					<div class="badge-container">
+						<span class="badge badge-green">WTA 500</span>
+						<span class="badge-subtitle">국내 유일 WTA 정규투어</span>
 					</div>
 				</div>
+			</div>
 
-				<div class="grid grid-cols-3 gap-4 mb-6">
-					<div class="stat-box">
-						<p class="text-sm text-gray-500">개최 시기</p>
-						<p class="text-lg font-bold text-gray-800">2024.9.14~22</p>
-					</div>
-					<div class="stat-box">
-						<p class="text-sm text-gray-500">개최 장소</p>
-						<p class="text-lg font-bold text-gray-800">올림픽공원</p>
-					</div>
-					<div class="stat-box">
-						<p class="text-sm text-gray-500">총상금</p>
-						<p class="text-lg font-bold text-gray-800">100만 달러</p>
-					</div>
+			<div class="stats-grid">
+				<div class="stat-box stat-box-green">
+					<p class="label">개최 시기</p>
+					<p class="value">2024.9.14~22</p>
 				</div>
+				<div class="stat-box stat-box-green">
+					<p class="label">개최 장소</p>
+					<p class="value">올림픽공원</p>
+				</div>
+				<div class="stat-box stat-box-green">
+					<p class="label">총상금</p>
+					<p class="value">100만 달러</p>
+				</div>
+			</div>
 
-				<div class="feature-item">
+			<ul class="features-list">
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-star"></i>
-					<div>
-						<span class="font-semibold">WTA 500으로 승격</span>
-						<p class="text-sm text-gray-600">더 높은 등급의 대회로 승격되어 더 많은 상위 랭킹 선수들 참가</p>
+					<div class="feature-details">
+						<span class="title">WTA 500으로 승격</span>
+						<p class="description">더 높은 등급의 대회로 승격되어 더 많은 상위 랭킹 선수들 참가</p>
 					</div>
-				</div>
-
-				<div class="feature-item">
+				</li>
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-user-check"></i>
-					<div>
-						<span class="font-semibold">세계적인 스타 선수 참가</span>
-						<p class="text-sm text-gray-600">2024년 세계 1위 이가 시비옹테크(폴란드) 등 참가 신청( 부상 철회 )</p>
+					<div class="feature-details">
+						<span class="title">세계적인 스타 선수 참가</span>
+						<p class="description">2024년 세계 1위 이가 시비옹테크(폴란드) 등 참가 신청( 부상 철회 )</p>
 					</div>
-				</div>
-
-				<div class="feature-item">
+				</li>
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-award"></i>
-					<div>
-						<span class="font-semibold">2024 우승자</span>
-						<p class="text-sm text-gray-600">베아트리스 아다드 마이아(브라질, 세계 17위)</p>
+					<div class="feature-details">
+						<span class="title">2024 우승자</span>
+						<p class="description">베아트리스 아다드 마이아(브라질, 세계 17위)</p>
 					</div>
-				</div>
-
-				<div class="feature-item">
+				</li>
+				<li class="feature-item feature-item-green">
 					<i class="fas fa-calendar-alt"></i>
-					<div>
-						<span class="font-semibold">2025년 대회 일정</span>
-						<p class="text-sm text-gray-600">2025년 9월 중 개최 예정 (9.14~9.21 추정)</p>
+					<div class="feature-details">
+						<span class="title">2025년 대회 일정</span>
+						<p class="description">2025년 9월 중 개최 예정 (9.14~9.21 추정)</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 하나증권 전국종별테니스대회 -->
+		<div class="tournament-card securities-card">
+			<div class="card-header">
+				<div class="card-icon bg-blue-50">
+					<i class="fas fa-medal text-blue-600"></i>
+				</div>
+				<div class="card-title">
+					<h2>하나증권 전국종별테니스대회</h2>
+					<div class="badge-container">
+						<span class="badge badge-blue">국내 주니어/프로</span>
+						<span class="badge-subtitle">국내 최대 규모 종별 대회</span>
 					</div>
 				</div>
 			</div>
 
-			<!-- 하나증권 전국종별테니스대회 -->
-			<div class="tournament-card securities-card p-6">
-				<div class="flex items-center mb-4">
-					<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-						<i class="fas fa-medal text-xl text-blue-600"></i>
-					</div>
-					<div>
-						<h2 class="text-2xl font-bold text-gray-800">하나증권 전국종별테니스대회</h2>
-						<div class="mt-1">
-							<span class="badge badge-blue">국내 주니어/프로</span>
-							<span class="text-sm text-gray-500">국내 최대 규모 종별 대회</span>
-						</div>
-					</div>
+			<div class="stats-grid">
+				<div class="stat-box stat-box-blue">
+					<p class="label">2024년 개최</p>
+					<p class="value">2024년 3월</p>
 				</div>
-
-				<div class="grid grid-cols-3 gap-4 mb-6">
-					<div class="stat-box stat-box-blue">
-						<p class="text-sm text-gray-500">2024년 개최</p>
-						<p class="text-lg font-bold text-gray-800">2024년 3월</p>
-					</div>
-					<div class="stat-box stat-box-blue">
-						<p class="text-sm text-gray-500">2025년 개최</p>
-						<p class="text-lg font-bold text-gray-800">2025년 6월</p>
-					</div>
-					<div class="stat-box stat-box-blue">
-						<p class="text-sm text-gray-500">개최 장소</p>
-						<p class="text-lg font-bold text-gray-800">김천/양구</p>
-					</div>
+				<div class="stat-box stat-box-blue">
+					<p class="label">2025년 개최</p>
+					<p class="value">2025년 6월</p>
 				</div>
+				<div class="stat-box stat-box-blue">
+					<p class="label">개최 장소</p>
+					<p class="value">김천/양구</p>
+				</div>
+			</div>
 
-				<div class="feature-item feature-item-blue">
+			<ul class="features-list">
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-users"></i>
-					<div>
-						<span class="font-semibold">주요 참가 그룹</span>
-						<p class="text-sm text-gray-600">10세부, 12세부, 14세부, 16세부, 18세부 주니어 선수</p>
+					<div class="feature-details">
+						<span class="title">주요 참가 그룹</span>
+						<p class="description">10세부, 12세부, 14세부, 16세부, 18세부 주니어 선수</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-blue">
+				</li>
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-globe-asia"></i>
-					<div>
-						<span class="font-semibold">국제 주니어 대회 연계</span>
-						<p class="text-sm text-gray-600">ITF 하나증권 양구국제주니어테니스대회(J60)</p>
-						<p class="text-sm text-gray-600">2025.4.27~5.4 / 양구테니스파크</p>
+					<div class="feature-details">
+						<span class="title">국제 주니어 대회 연계</span>
+						<p class="description">ITF 하나증권 양구국제주니어테니스대회(J60)</p>
+						<p class="description">2025.4.27~5.4 / 양구테니스파크</p>
 					</div>
-				</div>
-
-				<div class="feature-item feature-item-blue">
+				</li>
+				<li class="feature-item feature-item-blue">
 					<i class="fas fa-trophy"></i>
-					<div>
-						<span class="font-semibold">주요 성과</span>
-						<p class="text-sm text-gray-600">국내 주요 주니어 선수 발굴 및 육성의 등용문 역할</p>
-						<p class="text-sm text-gray-600">국제 대회 출전 기회 제공 (ITF/ATF 포인트 획득)</p>
+					<div class="feature-details">
+						<span class="title">주요 성과</span>
+						<p class="description">국내 주요 주니어 선수 발굴 및 육성의 등용문 역할</p>
+						<p class="description">국제 대회 출전 기회 제공 (ITF/ATF 포인트 획득)</p>
 					</div>
-				</div>
-			</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>

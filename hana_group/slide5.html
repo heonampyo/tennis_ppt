@@ -14,78 +14,109 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
 			background-color: #f0f0f0;
 		}
 		.slide-container {
-			width: 90vw; /* Use viewport width */
-			max-width: 1280px; /* Maximum width */
-			aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio (1280x720) */
+			width: 100vw;
+			height: 100vh;
+			box-sizing: border-box;
 			position: relative;
 			background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 			overflow: hidden;
-		}
-		@media (max-aspect-ratio: 16/9) {
-			.slide-container {
-				height: 90vh; /* Use viewport height if aspect ratio is narrower */
-				width: auto; /* Let width adjust based on height */
-			}
+			padding: 5vh 6vw;
+			display: flex;
+			flex-direction: column;
 		}
 		.accent-bar {
 			position: absolute;
 			width: 100%;
-			height: 8px;
+			height: 1.2vh;
 			background: linear-gradient(90deg, #00857d 0%, #0078c1 100%);
 			top: 0;
 			left: 0;
 		}
-		.logo {
-			position: absolute;
-			top: 4.16vh; /* 30px / 720px */
-			right: 3.9vw; /* 50px / 1280px */
-			width: 11.7vw; /* 150px / 1280px */
-			max-width: 150px;
-		}
 		.title-bar {
-			padding: 4.16vh 0 2.77vh 7.8vw; /* 30px/720px, 20px/720px, 100px/1280px */
 			position: relative;
+			padding-bottom: 2vh;
+			margin-bottom: 2vh;
 		}
 		.title-bar:after {
 			content: '';
 			position: absolute;
 			bottom: 0;
-			left: 7.8vw; /* 100px/1280px */
-			width: 6.25vw; /* 80px/1280px */
-			height: 4px;
+			left: 0;
+			width: 8vw;
+			max-width: 100px;
+			height: 5px;
 			background: linear-gradient(90deg, #00857d 0%, #0078c1 100%);
 		}
-		.conclusion-card {
+		.title-bar h1 {
+			font-size: clamp(22px, 3.2vw, 36px);
+			font-weight: 700;
+			color: #333;
+		}
+		.title-bar p {
+			font-size: clamp(14px, 1.7vw, 18px);
+			color: #555;
+			margin-top: 1vh;
+		}
+		.content-area {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3vw;
+			flex-grow: 1;
+			overflow: auto;
+		}
+		.column {
+			display: flex;
+			flex-direction: column;
+			gap: 2vh;
+		}
+		.card {
 			background-color: white;
 			border-radius: 10px;
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-			position: relative;
-			overflow: hidden;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+			padding: 2.5vh 2vw;
+		}
+		.card-header {
+			display: flex;
+			align-items: center;
+			font-size: clamp(16px, 2vw, 22px);
+			font-weight: 700;
+			color: #333;
+			margin-bottom: 2vh;
+		}
+		.card-header i {
+			margin-right: 1vw;
 		}
 		.strategy-item {
 			display: flex;
 			align-items: flex-start;
-			margin-bottom: 2.08vh; /* 15px/720px */
+			margin-bottom: 1.5vh;
 		}
 		.strategy-item i {
-			width: 1.875vw; /* 24px/1280px */
-			margin-right: 0.9375vw; /* 12px/1280px */
-			margin-top: 0.416vh; /* 3px/720px */
+			width: 24px;
+			margin-right: 1vw;
+			margin-top: 0.3vh;
+			font-size: clamp(14px, 1.5vw, 16px);
 		}
-		.chart-container {
-			position: relative;
-			height: 27.77vh; /* 200px/720px */
-			width: 100%;
+		.strategy-item .title {
+			font-weight: 600;
+			font-size: clamp(13px, 1.4vw, 16px);
+			color: #444;
+		}
+		.strategy-item .description {
+			font-size: clamp(12px, 1.2vw, 14px);
+			color: #666;
+			line-height: 1.4;
+		}
+		.metric-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5vw;
 		}
 		.metric-box {
-			padding: 1.66vh 0.9375vw; /* 12px/720px, 12px/1280px */
+			padding: 1.5vh 1vw;
 			border-radius: 8px;
 			text-align: center;
 			position: relative;
@@ -99,139 +130,107 @@
 			width: 4px;
 			height: 100%;
 		}
-		.metric-box-green:before {
-			background-color: #00857d;
+		.metric-box-green { background-color: rgba(0, 133, 125, 0.08); }
+		.metric-box-green:before { background-color: #00857d; }
+		.metric-box-blue { background-color: rgba(0, 120, 193, 0.08); }
+		.metric-box-blue:before { background-color: #0078c1; }
+		.metric-box h3 {
+			font-size: clamp(14px, 1.6vw, 18px);
+			font-weight: 700;
 		}
-		.metric-box-blue:before {
-			background-color: #0078c1;
+		.metric-box p {
+			font-size: clamp(11px, 1.1vw, 13px);
+			color: #555;
+			margin: 0.5vh 0;
+		}
+		.metric-box .strategy {
+			font-size: clamp(11px, 1.1vw, 13px);
+			margin-top: 1vh;
+		}
+		.metric-box .strategy .label { font-weight: 600; }
+		.metric-box .strategy .text-green { color: #00857d; }
+		.metric-box .strategy .text-blue { color: #0078c1; }
+		.chart-container {
+			position: relative;
+			height: 20vh;
+			width: 100%;
+			margin-top: 2vh;
+		}
+		.future-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5vw;
+			margin-bottom: 2vh;
+		}
+		.future-item {
+			background-color: white;
+			border: 1px solid #eee;
+			border-radius: 8px;
+			padding: 1.5vh 1.2vw;
+		}
+		.future-item .header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1vh;
+		}
+		.future-item .icon {
+			width: 3.5vw;
+			height: 3.5vw;
+			max-width: 35px;
+			max-height: 35px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 1vw;
+		}
+		.future-item .icon i { font-size: clamp(14px, 1.8vw, 18px); }
+		.future-item h3 {
+			font-size: clamp(14px, 1.6vw, 18px);
+			font-weight: 700;
+		}
+		.future-item p {
+			font-size: clamp(12px, 1.2vw, 14px);
+			color: #666;
+			line-height: 1.4;
+		}
+		.digital-strategy {
+			background-color: #f8f9fa;
+			border-radius: 8px;
+			padding: 2vh 1.5vw;
+			margin-bottom: 2vh;
+		}
+		.digital-strategy ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.digital-strategy li {
+			display: flex;
+			align-items: flex-start;
+			font-size: clamp(12px, 1.2vw, 14px);
+			color: #666;
+			margin-bottom: 1vh;
+		}
+		.digital-strategy li i {
+			color: #28a745;
+			margin-right: 1vw;
+			margin-top: 0.4vh;
+		}
+		.future-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.8vw;
 		}
 		.future-tag {
-			display: inline-block;
-			padding: 0.55vh 0.9375vw; /* 4px/720px, 12px/1280px */
+			padding: 0.6vh 1.2vw;
 			border-radius: 20px;
-			font-size: 1.01vw; /* 13px/1280px */
-			max-font-size: 13px;
-			margin-right: 0.46vw; /* 6px/1280px */
-			margin-bottom: 0.83vh; /* 6px/720px */
+			font-size: clamp(11px, 1.1vw, 13px);
 			color: white;
+			font-weight: 500;
 		}
-		.tag-green {
-			background-color: #00857d;
-		}
-		.tag-blue {
-			background-color: #0078c1;
-		}
-		.footer {
-			position: absolute;
-			bottom: 4.16vh; /* 30px / 720px */
-			left: 7.8vw; /* 100px / 1280px */
-			font-size: 1.09vw; /* 14px / 1280px */
-			max-font-size: 14px;
-			color: #666;
-		}
-
-		/* Font sizes */
-		h1.text-3xl {
-			font-size: 2.34vw; /* 30px/1280px */
-			max-font-size: 30px;
-		}
-		p.text-gray-600.mt-2 {
-			font-size: 1.25vw; /* 16px/1280px */
-			max-font-size: 16px;
-		}
-		h2.text-xl {
-			font-size: 1.56vw; /* 20px/1280px */
-			max-font-size: 20px;
-		}
-		h3.text-lg {
-			font-size: 1.4vw; /* 18px/1280px */
-			max-font-size: 18px;
-		}
-		.text-sm {
-			font-size: 0.9375vw; /* 12px/1280px */
-			max-font-size: 12px;
-		}
-		.content-area {
-			padding-left: 7.8vw; /* 100px/1280px */
-			padding-right: 7.8vw; /* 100px/1280px */
-			margin-top: 0.83vh; /* 6px/720px */
-		}
-		.content-area .grid {
-			gap: 0.625vw; /* 8px/1280px */
-		}
-		.conclusion-card.p-6 {
-			padding: 0.83vh 0.46vw; /* 6px/720px, 6px/1280px */
-		}
-		.conclusion-card .mb-6 {
-			margin-bottom: 0.83vh; /* 6px/720px */
-		}
-		.conclusion-card .mb-4 {
-			margin-bottom: 0.55vh; /* 4px/720px */
-		}
-		.conclusion-card .mr-2 {
-			margin-right: 0.15vw; /* 2px/1280px */
-		}
-		.conclusion-card .w-10 {
-			width: 3.125vw; /* 10px/1280px */
-			height: 4.16vh; /* 10px/720px */
-		}
-		.conclusion-card .mr-3 {
-			margin-right: 0.23vw; /* 3px/1280px */
-		}
-		.conclusion-card .mt-3 {
-			margin-top: 0.416vh; /* 3px/720px */
-		}
-		.conclusion-card .p-4 {
-			padding: 0.55vh 0.31vw; /* 4px/720px, 4px/1280px */
-		}
-		.conclusion-card .p-5 {
-			padding: 0.69vh 0.39vw; /* 5px/720px, 5px/1280px */
-		}
-		.conclusion-card .mb-3 {
-			margin-bottom: 0.416vh; /* 3px/720px */
-		}
-		.conclusion-card .mt-1 {
-			margin-top: 0.13vh; /* 1px/720px */
-		}
-		.conclusion-card .mt-2 {
-			margin-top: 0.27vh; /* 2px/720px */
-		}
-		.conclusion-card .space-y-2 > :not([hidden]) ~ :not([hidden]) {
-			--tw-space-y-reverse: 0;
-			margin-top: calc(0.27vh * calc(1 - var(--tw-space-y-reverse))); /* 2px/720px */
-			margin-bottom: calc(0.27vh * var(--tw-space-y-reverse));
-		}
-		.conclusion-card .grid.grid-cols-3 {
-			gap: 0.31vw; /* 4px/1280px */
-		}
-		.conclusion-card .gap-4 {
-			gap: 0.31vw; /* 4px/1280px */
-		}
-		.conclusion-card .gap-3 {
-			gap: 0.23vw; /* 3px/1280px */
-		}
-		.recommendation-card.p-6 {
-			padding: 0.83vh 0.46vw; /* 6px/720px, 6px/1280px */
-		}
-		.recommendation-card .mb-3 {
-			margin-bottom: 0.416vh; /* 3px/720px */
-		}
-		.recommendation-card .mr-2 {
-			margin-right: 0.15vw; /* 2px/1280px */
-		}
-		.recommendation-card .p-3 {
-			padding: 0.416vh 0.23vw; /* 3px/720px, 3px/1280px */
-		}
-		.recommendation-card .mr-4 {
-			margin-right: 0.31vw; /* 4px/1280px */
-		}
-		.recommendation-card .w-8 {
-			width: 2.34vw; /* 8px/1280px */
-			height: 3.33vh; /* 8px/720px */
-		}
-		.recommendation-card .mb-2 {
-			margin-bottom: 0.27vh; /* 2px/720px */
-		}
+		.tag-green { background-color: #00857d; }
+		.tag-blue { background-color: #0078c1; }
 	</style>
 </head>
 <body>
@@ -402,14 +401,14 @@
 					{
 						label: '하나은행',
 						data: [85, 30, 60, 80],
-						backgroundColor: 'rgba(0, 133, 125, 0.6)',
+						backgroundColor: 'rgba(0, 133, 125, 0.7)',
 						borderColor: 'rgba(0, 133, 125, 1)',
 						borderWidth: 1
 					},
 					{
 						label: '하나증권',
 						data: [30, 75, 70, 65],
-						backgroundColor: 'rgba(0, 120, 193, 0.6)',
+						backgroundColor: 'rgba(0, 120, 193, 0.7)',
 						borderColor: 'rgba(0, 120, 193, 1)',
 						borderWidth: 1
 					}
@@ -422,15 +421,35 @@
 					y: {
 						beginAtZero: true,
 						max: 100,
+						ticks: {
+							font: {
+								size: 12
+							}
+						},
 						title: {
 							display: true,
-							text: '활동 강도 지수'
+							text: '활동 강도 지수',
+							font: {
+								size: 14
+							}
+						}
+					},
+					x: {
+						ticks: {
+							font: {
+								size: 12
+							}
 						}
 					}
 				},
 				plugins: {
 					legend: {
-						position: 'bottom'
+						position: 'bottom',
+						labels: {
+							font: {
+								size: 14
+							}
+						}
 					}
 				}
 			}
