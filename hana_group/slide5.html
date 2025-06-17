@@ -65,7 +65,12 @@
 			grid-template-columns: 1fr 1fr;
 			gap: 3vw;
 			flex-grow: 1;
-			overflow: auto;
+			overflow: hidden;
+			height: 100%;
+		}
+		.content-area > div {
+			overflow-y: auto;
+			padding-right: 1vw;
 		}
 		.column {
 			display: flex;
@@ -242,7 +247,7 @@
 		<p class="text-gray-600 mt-2">하나금융지주 계열사의 테니스 스폰서십 성과 분석과 2025년 이후 전략 방향</p>
 	</div>
 
-	<div class="content-area px-20 mt-6 grid grid-cols-2 gap-8">
+	<div class="content-area">
 		<!-- 좌측 컬럼: 스폰서십 성과 분석 -->
 		<div>
 			<div class="conclusion-card p-6 mb-6">
