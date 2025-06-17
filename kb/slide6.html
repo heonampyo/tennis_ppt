@@ -8,18 +8,23 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 	<style>
+		html {
+			font-size: 1.25vw; /* Base font size for scaling, 16px at 1280px width */
+		}
 		body {
 			font-family: 'Noto Sans KR', sans-serif;
 			background-color: white;
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			height: 100vh;
 		}
 		.slide-container {
-			width: 1280px;
-			min-height: 720px;
+			width: 100%;
+			height: 100%;
 			position: relative;
 			overflow: hidden;
+			box-sizing: border-box;
 		}
 		.kb-yellow {
 			color: #FFCC00;
@@ -38,55 +43,55 @@
 			height: 100%;
 			background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
 			url('https://img.freepik.com/premium-vector/tennis-ball-seamless-pattern_160308-135.jpg');
-			background-size: 300px;
+			background-size: 18.75rem; /* 300px */
 			z-index: -1;
 		}
 		.table-header {
-			border-radius: 8px 8px 0 0;
+			border-radius: 0.5rem 0.5rem 0 0; /* 8px */
 		}
 		.budget-table {
-			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-			border-radius: 8px;
+			box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1); /* 4px 12px */
+			border-radius: 0.5rem; /* 8px */
 		}
 		.table-cell {
-			padding: 12px 16px;
-			border-bottom: 1px solid #e2e8f0;
+			padding: 0.75rem 1rem; /* 12px 16px */
+			border-bottom: 0.0625rem solid #e2e8f0; /* 1px */
 		}
 		.corner-accent {
 			position: absolute;
-			width: 200px;
-			height: 200px;
+			width: 12.5rem; /* 200px */
+			height: 12.5rem; /* 200px */
 			background-color: #FFCC00;
 			opacity: 0.15;
 			z-index: -1;
 		}
 		.bottom-left {
-			bottom: -100px;
-			left: -100px;
-			border-radius: 0 200px 0 0;
+			bottom: -6.25rem; /* -100px */
+			left: -6.25rem; /* -100px */
+			border-radius: 0 12.5rem 0 0; /* 200px */
 		}
 		.tennis-icon {
-			width: 20px;
-			height: 20px;
+			width: 1.25rem; /* 20px */
+			height: 1.25rem; /* 20px */
 			background-color: #FFCC00;
 			border-radius: 50%;
 			display: inline-block;
 			position: relative;
-			margin-right: 8px;
+			margin-right: 0.5rem; /* 8px */
 		}
 		.tennis-icon::after {
 			content: "";
 			position: absolute;
-			top: 3px;
-			left: 3px;
-			right: 3px;
-			bottom: 3px;
+			top: 0.1875rem; /* 3px */
+			left: 0.1875rem; /* 3px */
+			right: 0.1875rem; /* 3px */
+			bottom: 0.1875rem; /* 3px */
 			border-radius: 50%;
-			border: 1.5px dashed white;
+			border: 0.09375rem dashed white; /* 1.5px */
 		}
 		.progress-bar {
-			height: 12px;
-			border-radius: 6px;
+			height: 0.75rem; /* 12px */
+			border-radius: 0.375rem; /* 6px */
 			background-color: #f3f4f6;
 			overflow: hidden;
 		}
@@ -103,7 +108,7 @@
 
 	<!-- 헤더 로고 및 제목 -->
 	<div class="w-full flex justify-between items-center mb-8">
-		<img src="https://www.kbstar.com/img/common/logo.png" alt="KB국민은행 로고" class="h-10">
+		<img src="./KB_logo_2020.jpg" alt="KB국민은행 로고" class="h-10">
 		<p class="text-sm kb-dark">KB국민은행 테니스 대회 예산안 및 하나증권 사례 비교</p>
 	</div>
 
