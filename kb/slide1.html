@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 	<style>
 		html {
-			font-size: 1.25vw; /* Base font size for scaling, 16px at 1280px width */
+			font-size: 1.8vmin; /* Use vmin to adapt to both width and height, ensuring visibility */
 		}
 		body {
 			font-family: 'Noto Sans KR', sans-serif;
@@ -25,6 +25,8 @@
 			position: relative;
 			overflow: hidden;
 			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
 		}
 		.kb-yellow {
 			color: #FFCC00;
@@ -89,19 +91,19 @@
 	</style>
 </head>
 <body>
-<div class="slide-container flex flex-col items-center justify-between p-12 border-pattern">
+<div class="slide-container flex flex-col items-center p-12 border-pattern">
 	<div class="pattern-bg"></div>
 	<div class="corner-accent top-left"></div>
 	<div class="corner-accent bottom-right"></div>
 
 	<!-- 헤더 로고 -->
-	<div class="w-full flex justify-between items-center">
+	<div class="w-full flex justify-between items-center flex-shrink-0">
 		<img src="./KB_logo_2020.jpg" alt="KB국민은행 로고" class="h-12">
 		<div class="tennis-ball"></div>
 	</div>
 
 	<!-- 중앙 제목 영역 -->
-	<div class="flex flex-col items-center justify-center text-center my-12 z-10">
+	<div class="flex flex-grow flex-col items-center justify-center text-center z-10">
 		<h1 class="text-5xl font-bold kb-dark mb-6 leading-tight">KB국민은행 테니스 대회 예산안 및<br>하나증권 사례 비교</h1>
 		<div class="w-20 h-1 kb-bg-yellow my-6"></div>
 		<h2 class="text-2xl kb-dark font-medium mt-4">Young Customers 마케팅을 위한 스포츠 커뮤니티 전략</h2>
