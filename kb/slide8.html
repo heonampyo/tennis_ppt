@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>결론 및 실행 제안</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			background-color: white;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.slide-container {
+			width: 1280px;
+			min-height: 720px;
+			position: relative;
+			overflow: hidden;
+		}
+		.kb-yellow {
+			color: #FFCC00;
+		}
+		.kb-bg-yellow {
+			background-color: #FFCC00;
+		}
+		.kb-dark {
+			color: #333333;
+		}
+		.pattern-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+			url('https://img.freepik.com/premium-vector/tennis-ball-seamless-pattern_160308-135.jpg');
+			background-size: 300px;
+			z-index: -1;
+		}
+		.side-accent {
+			position: absolute;
+			width: 12px;
+			height: 80%;
+			background-color: #FFCC00;
+			top: 10%;
+			left: 0;
+			z-index: 1;
+		}
+		.title-section {
+			border-left: 5px solid #FFCC00;
+			padding-left: 25px;
+		}
+		.content-box {
+			background-color: rgba(255, 255, 255, 0.85);
+			border-radius: 10px;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+		}
+		.icon-highlight {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 32px;
+			height: 32px;
+			background-color: #FFCC00;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+		.bullet-point {
+			position: relative;
+			padding-left: 24px;
+			margin-bottom: 14px;
+			line-height: 1.5;
+		}
+		.bullet-point:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width: 10px;
+			height: 10px;
+			background-color: #FFCC00;
+			border-radius: 50%;
+		}
+		.corner-accent {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: #FFCC00;
+			opacity: 0.15;
+			z-index: -1;
+		}
+		.bottom-right {
+			bottom: -100px;
+			right: -100px;
+			border-radius: 200px 0 0 0;
+		}
+		.phase-step {
+			border-left: 3px solid #FFCC00;
+			padding-left: 16px;
+			margin-bottom: 12px;
+		}
+	</style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-12">
+	<div class="pattern-bg"></div>
+	<div class="side-accent"></div>
+	<div class="corner-accent bottom-right"></div>
+
+	<!-- 헤더 로고 및 제목 -->
+	<div class="w-full flex justify-between items-center mb-6">
+		<img src="https://www.kbstar.com/img/common/logo.png" alt="KB국민은행 로고" class="h-10">
+		<p class="text-sm kb-dark">KB국민은행 테니스 대회 예산안 및 하나증권 사례 비교</p>
+	</div>
+
+	<!-- 메인 콘텐츠 영역 -->
+	<div class="flex flex-row h-full">
+		<!-- 좌측 제목 영역 -->
+		<div class="w-1/3 pr-8">
+			<div class="title-section h-full flex flex-col justify-center">
+				<h2 class="text-4xl font-bold kb-dark mb-5">결론 및<br>실행 제안</h2>
+				<div class="w-16 h-1 kb-bg-yellow mb-4"></div>
+				<p class="text-lg text-gray-600 mt-4">하나증권 사례 벤치마킹을<br>통한 효율적 운영 방안</p>
+
+				<div class="mt-10">
+					<div class="flex items-center mb-4">
+                            <span class="icon-highlight">
+                                <i class="fas fa-chart-pie text-white"></i>
+                            </span>
+						<span class="text-lg font-medium">예산 효율화</span>
+					</div>
+					<div class="flex items-center">
+                            <span class="icon-highlight">
+                                <i class="fas fa-calendar-alt text-white"></i>
+                            </span>
+						<span class="text-lg font-medium">실행 계획</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 우측 내용 영역 -->
+		<div class="w-2/3 pl-8">
+			<div class="content-box p-7 h-full">
+				<h3 class="text-2xl font-bold kb-dark mb-4">벤치마킹 결론</h3>
+
+				<div class="bullet-point">
+					<strong class="kb-dark">하나증권 대비 효율적 예산 운영 가능</strong> - 약 5천만 원으로 유사한 마케팅 효과 달성 가능 (67% 절감)
+				</div>
+
+				<div class="bullet-point">
+					<strong class="kb-dark">참가 규모 최적화</strong> - 400팀(800명) 규모로 운영하여 관리 효율성 제고
+				</div>
+
+				<div class="bullet-point">
+					<strong class="kb-dark">계좌 개설 혜택 연계</strong> - 참가 조건보다 혜택 연계를 통한 유입 전략이 더 효과적
+				</div>
+
+				<div class="my-5 border-t border-b border-gray-200 py-4">
+					<h3 class="text-2xl font-bold kb-dark mb-3">단계별 실행 계획</h3>
+
+					<div class="grid grid-cols-3 gap-3">
+						<div class="phase-step">
+							<p class="font-bold kb-dark">1단계: 준비 (7-8월)</p>
+							<p class="text-sm">예산 확정, 장소 섭외, 협회 협의, KB월렛 연동 개발</p>
+						</div>
+
+						<div class="phase-step">
+							<p class="font-bold kb-dark">2단계: 홍보 (8-9월)</p>
+							<p class="text-sm">SNS 마케팅, 앱 내 홍보, 테니스 커뮤니티 제휴</p>
+						</div>
+
+						<div class="phase-step">
+							<p class="font-bold kb-dark">3단계: 운영 (9-11월)</p>
+							<p class="text-sm">대회 진행, 혜택 제공, 브랜드 캠페인 연계</p>
+						</div>
+					</div>
+				</div>
+
+				<h3 class="text-2xl font-bold kb-dark mb-3">의사결정 요청사항</h3>
+
+				<div class="bg-gray-50 p-3 rounded-lg border-l-4 border-yellow-400">
+					<p class="font-bold text-lg mb-2">5,000만 원 예산안 승인 요청</p>
+					<p class="text-sm">참가비 수입을 제외한 순수 운영 예산으로, 하나증권 대비 높은 투자 효율성 기대</p>
+					<p class="text-sm mt-2">KB월렛 연동 마케팅과 계좌개설 혜택을 통해 2030 타겟 고객층 유입 강화</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 하단 페이지 번호 -->
+	<div class="w-full flex justify-end mt-3">
+		<div class="kb-bg-yellow rounded-full w-8 h-8 flex items-center justify-center">
+			<span class="text-white font-medium">8</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KB국민은행 테니스 대회 예산안</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			background-color: white;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.slide-container {
+			width: 1280px;
+			min-height: 720px;
+			position: relative;
+			overflow: hidden;
+		}
+		.kb-yellow {
+			color: #FFCC00;
+		}
+		.kb-bg-yellow {
+			background-color: #FFCC00;
+		}
+		.kb-dark {
+			color: #333333;
+		}
+		.tennis-ball {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background-color: #FFCC00;
+			position: relative;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+		}
+		.tennis-ball::before {
+			content: "";
+			position: absolute;
+			width: 58px;
+			height: 58px;
+			top: 1px;
+			left: 1px;
+			border-radius: 50%;
+			border: 2px dashed white;
+		}
+		.pattern-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+			url('https://img.freepik.com/premium-vector/tennis-ball-seamless-pattern_160308-135.jpg');
+			background-size: 300px;
+			z-index: -1;
+		}
+		.corner-accent {
+			position: absolute;
+			width: 320px;
+			height: 320px;
+			background-color: #FFCC00;
+			opacity: 0.8;
+			z-index: -1;
+		}
+		.top-left {
+			top: -160px;
+			left: -160px;
+			border-radius: 0 0 320px 0;
+		}
+		.bottom-right {
+			bottom: -160px;
+			right: -160px;
+			border-radius: 320px 0 0 0;
+		}
+		.border-pattern {
+			border: 5px solid transparent;
+			border-image: linear-gradient(45deg, #FFCC00, #FFD700, #FFCC00) 1;
+		}
+	</style>
+</head>
+<body>
+<div class="slide-container flex flex-col items-center justify-between p-12 border-pattern">
+	<div class="pattern-bg"></div>
+	<div class="corner-accent top-left"></div>
+	<div class="corner-accent bottom-right"></div>
+
+	<!-- 헤더 로고 -->
+	<div class="w-full flex justify-between items-center">
+		<img src="https://www.kbstar.com/img/common/logo.png" alt="KB국민은행 로고" class="h-12">
+		<div class="tennis-ball"></div>
+	</div>
+
+	<!-- 중앙 제목 영역 -->
+	<div class="flex flex-col items-center justify-center text-center my-12 z-10">
+		<h1 class="text-5xl font-bold kb-dark mb-6 leading-tight">KB국민은행 테니스 대회 예산안 및<br>하나증권 사례 비교</h1>
+		<div class="w-20 h-1 kb-bg-yellow my-6"></div>
+		<h2 class="text-2xl kb-dark font-medium mt-4">유즈 마케팅을 위한 스포츠 커뮤니티 전략</h2>
+
+		<div class="flex items-center mt-12">
+			<i class="fas fa-tennis-ball kb-yellow text-2xl mr-3"></i>
+			<i class="fas fa-trophy kb-yellow text-2xl"></i>
+		</div>
+	</div>
+
+	<!-- 하단 정보 -->
+	<div class="w-full flex justify-between items-end z-10">
+		<div class="text-left">
+			<p class="text-lg font-medium">마케팅 기획팀</p>
+			<p class="text-lg">발표자: 홍길동</p>
+		</div>
+
+		<div class="text-right">
+			<p class="text-lg font-medium">2025년 6월 17일</p>
+			<p class="text-lg kb-dark">KB국민은행</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

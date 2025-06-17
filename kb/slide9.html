@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>부록: 분석 참고 데이터 및 Q&A</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			background-color: white;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.slide-container {
+			width: 1280px;
+			min-height: 720px;
+			position: relative;
+			overflow: hidden;
+		}
+		.kb-yellow {
+			color: #FFCC00;
+		}
+		.kb-bg-yellow {
+			background-color: #FFCC00;
+		}
+		.kb-dark {
+			color: #333333;
+		}
+		.pattern-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+			url('https://img.freepik.com/premium-vector/tennis-ball-seamless-pattern_160308-135.jpg');
+			background-size: 300px;
+			z-index: -1;
+		}
+		.side-accent {
+			position: absolute;
+			width: 12px;
+			height: 80%;
+			background-color: #FFCC00;
+			top: 10%;
+			left: 0;
+			z-index: 1;
+		}
+		.title-section {
+			border-left: 5px solid #FFCC00;
+			padding-left: 25px;
+		}
+		.content-box {
+			background-color: rgba(255, 255, 255, 0.85);
+			border-radius: 10px;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+		}
+		.icon-highlight {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 28px;
+			height: 28px;
+			background-color: #FFCC00;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+		.bullet-point {
+			position: relative;
+			padding-left: 20px;
+			margin-bottom: 10px;
+			line-height: 1.5;
+		}
+		.bullet-point:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width: 8px;
+			height: 8px;
+			background-color: #FFCC00;
+			border-radius: 50%;
+		}
+		.corner-accent {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: #FFCC00;
+			opacity: 0.15;
+			z-index: -1;
+		}
+		.bottom-right {
+			bottom: -100px;
+			right: -100px;
+			border-radius: 200px 0 0 0;
+		}
+		.tab-content {
+			display: none;
+		}
+		.tab-content.active {
+			display: block;
+		}
+		.tab-button {
+			padding: 8px 16px;
+			background-color: #f1f1f1;
+			border-radius: 8px 8px 0 0;
+			font-weight: 500;
+			cursor: pointer;
+		}
+		.tab-button.active {
+			background-color: #FFCC00;
+			color: white;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		table th, table td {
+			border: 1px solid #e2e8f0;
+			padding: 8px 12px;
+		}
+		table th {
+			background-color: #f8f9fa;
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-12">
+	<div class="pattern-bg"></div>
+	<div class="side-accent"></div>
+	<div class="corner-accent bottom-right"></div>
+
+	<!-- 헤더 로고 및 제목 -->
+	<div class="w-full flex justify-between items-center mb-6">
+		<img src="https://www.kbstar.com/img/common/logo.png" alt="KB국민은행 로고" class="h-10">
+		<p class="text-sm kb-dark">KB국민은행 테니스 대회 예산안 및 하나증권 사례 비교</p>
+	</div>
+
+	<!-- 메인 콘텐츠 영역 -->
+	<div class="flex flex-row h-full">
+		<!-- 좌측 제목 영역 -->
+		<div class="w-1/3 pr-6">
+			<div class="title-section h-full flex flex-col justify-center">
+				<h2 class="text-4xl font-bold kb-dark mb-4">부록</h2>
+				<div class="w-16 h-1 kb-bg-yellow mb-4"></div>
+				<p class="text-lg text-gray-600 mt-2">분석 참고 데이터 및<br>자주 묻는 질문</p>
+
+				<div class="mt-8">
+					<div class="flex items-center mb-3">
+                            <span class="icon-highlight">
+                                <i class="fas fa-chart-bar text-white text-sm"></i>
+                            </span>
+						<span class="text-lg font-medium">데이터 근거</span>
+					</div>
+					<div class="flex items-center mb-3">
+                            <span class="icon-highlight">
+                                <i class="fas fa-calendar-alt text-white text-sm"></i>
+                            </span>
+						<span class="text-lg font-medium">예상 일정</span>
+					</div>
+					<div class="flex items-center">
+                            <span class="icon-highlight">
+                                <i class="fas fa-question-circle text-white text-sm"></i>
+                            </span>
+						<span class="text-lg font-medium">자주 묻는 질문</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 우측 내용 영역 -->
+		<div class="w-2/3 pl-6">
+			<div class="content-box p-6 h-full">
+				<!-- 탭 메뉴 -->
+				<div class="flex mb-4 space-x-2">
+					<div class="tab-button active" onclick="showTab('data')">벤치마킹 데이터</div>
+					<div class="tab-button" onclick="showTab('schedule')">예상 일정표</div>
+					<div class="tab-button" onclick="showTab('faq')">Q&A</div>
+				</div>
+
+				<!-- 벤치마킹 데이터 탭 -->
+				<div id="data-tab" class="tab-content active">
+					<h3 class="text-xl font-bold kb-dark mb-3">하나증권 테니스 대회 세부 분석</h3>
+
+					<table class="mb-4 text-sm">
+						<tr>
+							<th width="25%">항목</th>
+							<th width="25%">하나증권</th>
+							<th width="25%">KB국민은행(안)</th>
+							<th width="25%">효율화 방안</th>
+						</tr>
+						<tr>
+							<td>총 예산</td>
+							<td>약 1.5억원</td>
+							<td>약 5천만원</td>
+							<td>집중 운영으로 67% 절감</td>
+						</tr>
+						<tr>
+							<td>운영 방식</td>
+							<td>장기 분산형</td>
+							<td>집중형 주말 대회</td>
+							<td>운영 인력 효율화</td>
+						</tr>
+						<tr>
+							<td>마케팅 비용</td>
+							<td>약 4천만원</td>
+							<td>약 1천만원</td>
+							<td>디지털 채널 집중</td>
+						</tr>
+					</table>
+
+					<div class="bullet-point">
+						<strong>비용 효율화</strong> - 주말 집중형 운영으로 인건비 및 장소 대관료 절감
+					</div>
+					<div class="bullet-point">
+						<strong>사전 신청 방식</strong> - 최대 400팀으로 제한하여 운영 비용 최적화
+					</div>
+					<div class="bullet-point">
+						<strong>디지털 활용</strong> - 종이 없는 대회 운영, KB앱 활용으로 비용 절감
+					</div>
+				</div>
+
+				<!-- 예상 일정표 탭 -->
+				<div id="schedule-tab" class="tab-content">
+					<h3 class="text-xl font-bold kb-dark mb-3">KB국민은행 테니스 대회 예상 일정</h3>
+
+					<table class="mb-4 text-sm">
+						<tr>
+							<th width="30%">단계</th>
+							<th width="30%">일정</th>
+							<th width="40%">주요 내용</th>
+						</tr>
+						<tr>
+							<td>기획 및 준비</td>
+							<td>7월 ~ 8월</td>
+							<td>세부 계획 수립, 장소 섭외, 심판 섭외</td>
+						</tr>
+						<tr>
+							<td>참가자 모집</td>
+							<td>8월 15일 ~ 9월 15일</td>
+							<td>온라인 접수, KB 계좌 연계 혜택 홍보</td>
+						</tr>
+						<tr>
+							<td>대회 운영</td>
+							<td>9월 말 ~ 11월 초 주말</td>
+							<td>예선(1일), 본선(1일), 결승(1일)</td>
+						</tr>
+						<tr>
+							<td>사후 관리</td>
+							<td>11월 ~ 12월</td>
+							<td>성과 분석, 참가자 커뮤니티 관리</td>
+						</tr>
+					</table>
+
+					<div class="bullet-point">
+						<strong>주말 집중 운영</strong> - 3개 주말에 걸쳐 대회 진행, 효율적 자원 활용
+					</div>
+					<div class="bullet-point">
+						<strong>날씨 대비</strong> - 우천 시 실내 코트 예비 확보 또는 일정 조정 계획
+					</div>
+				</div>
+
+				<!-- FAQ 탭 -->
+				<div id="faq-tab" class="tab-content">
+					<h3 class="text-xl font-bold kb-dark mb-3">자주 묻는 질문 (FAQ)</h3>
+
+					<div class="space-y-4">
+						<div>
+							<p class="font-bold kb-dark">Q. 하나증권보다 적은 예산으로 유사한 마케팅 효과를 얻을 수 있을까요?</p>
+							<p class="text-gray-700 pl-4 mt-1">A. 네, 집중형 운영과 디지털 채널 활용으로 효율화하면서도 핵심 타깃층에게는 더 밀도 있는 경험을 제공할 수 있습니다.</p>
+						</div>
+
+						<div>
+							<p class="font-bold kb-dark">Q. 참가 조건 및 계좌 개설 혜택은 어떻게 구성할 예정인가요?</p>
+							<p class="text-gray-700 pl-4 mt-1">A. KB 계좌 개설 시 참가비 할인, KB앱 회원가입 시 추가 혜택 등 단계별 보상 체계를 구축합니다.</p>
+						</div>
+
+						<div>
+							<p class="font-bold kb-dark">Q. 주말 3일 운영으로 충분한 규모의 대회가 가능한가요?</p>
+							<p class="text-gray-700 pl-4 mt-1">A. 400팀 규모는 주말 3일간 집중 운영으로 충분히 소화 가능하며, 오히려 대회의 집중도와 화제성을 높일 수 있습니다.</p>
+						</div>
+
+						<div>
+							<p class="font-bold kb-dark">Q. ROI는 어떻게 측정할 계획인가요?</p>
+							<p class="text-gray-700 pl-4 mt-1">A. 신규 계좌 개설 수, KB앱 활성 사용자 증가율, 소셜미디어 노출량, 참가자 만족도 등 다양한 KPI를 설정하여 측정할 예정입니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 하단 페이지 번호 -->
+	<div class="w-full flex justify-end mt-4">
+		<div class="kb-bg-yellow rounded-full w-8 h-8 flex items-center justify-center">
+			<span class="text-white font-medium">9</span>
+		</div>
+	</div>
+</div>
+
+<script>
+	function showTab(tabName) {
+		// 모든 탭 컨텐츠 숨기기
+		document.querySelectorAll('.tab-content').forEach(tab => {
+			tab.classList.remove('active');
+		});
+
+		// 모든 탭 버튼 비활성화
+		document.querySelectorAll('.tab-button').forEach(button => {
+			button.classList.remove('active');
+		});
+
+		// 선택한 탭 컨텐츠 표시
+		document.getElementById(tabName + '-tab').classList.add('active');
+
+		// 선택한 탭 버튼 활성화
+		document.querySelectorAll('.tab-button').forEach(button => {
+			if (button.innerText.toLowerCase().includes(tabName) ||
+					(tabName === 'faq' && button.innerText.includes('Q&A'))) {
+				button.classList.add('active');
+			}
+		});
+	}
+</script>
+</body>
+</html>

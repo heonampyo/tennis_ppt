@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KB국민은행 테니스 대회 예산안(안)</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			background-color: white;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.slide-container {
+			width: 1280px;
+			min-height: 720px;
+			position: relative;
+			overflow: hidden;
+		}
+		.kb-yellow {
+			color: #FFCC00;
+		}
+		.kb-bg-yellow {
+			background-color: #FFCC00;
+		}
+		.kb-dark {
+			color: #333333;
+		}
+		.pattern-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+			url('https://img.freepik.com/premium-vector/tennis-ball-seamless-pattern_160308-135.jpg');
+			background-size: 300px;
+			z-index: -1;
+		}
+		.table-header {
+			border-radius: 8px 8px 0 0;
+		}
+		.budget-table {
+			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+			border-radius: 8px;
+		}
+		.table-cell {
+			padding: 12px 16px;
+			border-bottom: 1px solid #e2e8f0;
+		}
+		.corner-accent {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: #FFCC00;
+			opacity: 0.15;
+			z-index: -1;
+		}
+		.bottom-left {
+			bottom: -100px;
+			left: -100px;
+			border-radius: 0 200px 0 0;
+		}
+		.tennis-icon {
+			width: 20px;
+			height: 20px;
+			background-color: #FFCC00;
+			border-radius: 50%;
+			display: inline-block;
+			position: relative;
+			margin-right: 8px;
+		}
+		.tennis-icon::after {
+			content: "";
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			right: 3px;
+			bottom: 3px;
+			border-radius: 50%;
+			border: 1.5px dashed white;
+		}
+		.progress-bar {
+			height: 12px;
+			border-radius: 6px;
+			background-color: #f3f4f6;
+			overflow: hidden;
+		}
+		.progress-fill {
+			height: 100%;
+			background-color: #FFCC00;
+		}
+	</style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-12">
+	<div class="pattern-bg"></div>
+	<div class="corner-accent bottom-left"></div>
+
+	<!-- 헤더 로고 및 제목 -->
+	<div class="w-full flex justify-between items-center mb-8">
+		<img src="https://www.kbstar.com/img/common/logo.png" alt="KB국민은행 로고" class="h-10">
+		<p class="text-sm kb-dark">KB국민은행 테니스 대회 예산안 및 하나증권 사례 비교</p>
+	</div>
+
+	<!-- 타이틀 영역 -->
+	<div class="mb-6">
+		<div class="flex items-center">
+			<div class="tennis-icon"></div>
+			<h2 class="text-3xl font-bold kb-dark">KB국민은행 테니스 대회 예산안(안)</h2>
+		</div>
+		<p class="text-gray-600 mt-2 pl-7">총 예산: <span class="font-bold">5,000만원</span> (참가비 제외 순수 운영 예산)</p>
+	</div>
+
+	<!-- 예산표 영역 -->
+	<div class="budget-table bg-white overflow-hidden">
+		<div class="grid grid-cols-12 table-header">
+			<div class="table-cell col-span-4 font-bold bg-gray-100">항목</div>
+			<div class="table-cell col-span-2 font-bold bg-gray-100 text-center">금액(만원)</div>
+			<div class="table-cell col-span-2 font-bold bg-gray-100 text-center">비율</div>
+			<div class="table-cell col-span-4 font-bold bg-gray-100 text-center">예산 비중</div>
+		</div>
+
+		<!-- 상금 및 운영비 -->
+		<div class="grid grid-cols-12">
+			<div class="table-cell col-span-4 font-semibold">
+				<div class="flex items-center">
+					<i class="fas fa-trophy kb-yellow mr-2"></i>
+					상금 및 운영비
+				</div>
+				<div class="text-sm text-gray-600 mt-1 ml-6">우승/준우승 상금, 일반 운영비용</div>
+			</div>
+			<div class="table-cell col-span-2 text-center font-bold">1,800</div>
+			<div class="table-cell col-span-2 text-center">36%</div>
+			<div class="table-cell col-span-4">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 36%"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 경기진행 및 심판 -->
+		<div class="grid grid-cols-12">
+			<div class="table-cell col-span-4 font-semibold">
+				<div class="flex items-center">
+					<i class="fas fa-user-tie kb-yellow mr-2"></i>
+					경기진행 및 심판
+				</div>
+				<div class="text-sm text-gray-600 mt-1 ml-6">심판진 비용, 경기 진행 인력</div>
+			</div>
+			<div class="table-cell col-span-2 text-center font-bold">1,000</div>
+			<div class="table-cell col-span-2 text-center">20%</div>
+			<div class="table-cell col-span-4">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 20%"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 기념품 및 브랜딩 굿즈 -->
+		<div class="grid grid-cols-12">
+			<div class="table-cell col-span-4 font-semibold">
+				<div class="flex items-center">
+					<i class="fas fa-tshirt kb-yellow mr-2"></i>
+					기념품 및 브랜딩 굿즈
+				</div>
+				<div class="text-sm text-gray-600 mt-1 ml-6">스타프렌즈 캐릭터 활용 테니스 용품</div>
+			</div>
+			<div class="table-cell col-span-2 text-center font-bold">800</div>
+			<div class="table-cell col-span-2 text-center">16%</div>
+			<div class="table-cell col-span-4">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 16%"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 마케팅 비용 -->
+		<div class="grid grid-cols-12">
+			<div class="table-cell col-span-4 font-semibold">
+				<div class="flex items-center">
+					<i class="fas fa-bullhorn kb-yellow mr-2"></i>
+					마케팅 비용
+				</div>
+				<div class="text-sm text-gray-600 mt-1 ml-6">SNS, 온라인 캠페인, 광고</div>
+			</div>
+			<div class="table-cell col-span-2 text-center font-bold">700</div>
+			<div class="table-cell col-span-2 text-center">14%</div>
+			<div class="table-cell col-span-4">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 14%"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 협회 및 시설 대관비 -->
+		<div class="grid grid-cols-12">
+			<div class="table-cell col-span-4 font-semibold">
+				<div class="flex items-center">
+					<i class="fas fa-map-marker-alt kb-yellow mr-2"></i>
+					협회 및 시설 대관비
+				</div>
+				<div class="text-sm text-gray-600 mt-1 ml-6">테니스장 대관, 장비 대여</div>
+			</div>
+			<div class="table-cell col-span-2 text-center font-bold">500</div>
+			<div class="table-cell col-span-2 text-center">10%</div>
+			<div class="table-cell col-span-4">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 10%"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 기타 및 예비비 -->
+		<div class="grid grid-cols-12">
+			<div class="table-cell col-span-4 font-semibold border-b-0">
+				<div class="flex items-center">
+					<i class="fas fa-cog kb-yellow mr-2"></i>
+					기타 및 예비비
+				</div>
+				<div class="text-sm text-gray-600 mt-1 ml-6">행사 보험, 응급 의료, 예비비</div>
+			</div>
+			<div class="table-cell col-span-2 text-center font-bold border-b-0">200</div>
+			<div class="table-cell col-span-2 text-center border-b-0">4%</div>
+			<div class="table-cell col-span-4 border-b-0">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 4%"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 부가 설명 영역 -->
+	<div class="mt-6 grid grid-cols-2 gap-6">
+		<div class="bg-white rounded-lg p-4 shadow-sm">
+			<h3 class="font-bold kb-dark text-lg mb-2">예산 효율화 전략</h3>
+			<ul class="text-sm text-gray-700">
+				<li class="flex items-center mb-2">
+					<i class="fas fa-check-circle kb-yellow mr-2"></i>
+					하나증권 대비 67% 비용 절감 구조
+				</li>
+				<li class="flex items-center mb-2">
+					<i class="fas fa-check-circle kb-yellow mr-2"></i>
+					주말 집중형 대회로 대관비 최소화
+				</li>
+				<li class="flex items-center">
+					<i class="fas fa-check-circle kb-yellow mr-2"></i>
+					스타프렌즈 캐릭터 활용 시너지 효과
+				</li>
+			</ul>
+		</div>
+
+		<div class="bg-white rounded-lg p-4 shadow-sm">
+			<h3 class="font-bold kb-dark text-lg mb-2">참가비 활용 방안</h3>
+			<ul class="text-sm text-gray-700">
+				<li class="flex items-center mb-2">
+					<i class="fas fa-check-circle kb-yellow mr-2"></i>
+					참가비: 팀당 5~10만원 책정 (별도 수익)
+				</li>
+				<li class="flex items-center mb-2">
+					<i class="fas fa-check-circle kb-yellow mr-2"></i>
+					KB국민은행 계좌 개설 시 50% 할인 혜택
+				</li>
+				<li class="flex items-center">
+					<i class="fas fa-check-circle kb-yellow mr-2"></i>
+					참가비 수익은 추가 이벤트에 재투자
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 하단 페이지 번호 -->
+	<div class="w-full flex justify-end mt-4">
+		<div class="kb-bg-yellow rounded-full w-8 h-8 flex items-center justify-center">
+			<span class="text-white font-medium">6</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

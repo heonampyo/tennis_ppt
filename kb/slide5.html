@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>하나증권 vs KB국민은행 테니스 대회 비교</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Noto Sans KR', sans-serif;
+			background-color: white;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.slide-container {
+			width: 1280px;
+			min-height: 720px;
+			position: relative;
+			overflow: hidden;
+		}
+		.kb-yellow {
+			color: #FFCC00;
+		}
+		.kb-bg-yellow {
+			background-color: #FFCC00;
+		}
+		.hana-green {
+			color: #00857E;
+		}
+		.hana-bg-green {
+			background-color: #00857E;
+		}
+		.kb-dark {
+			color: #333333;
+		}
+		.pattern-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+			url('https://img.freepik.com/premium-vector/tennis-ball-seamless-pattern_160308-135.jpg');
+			background-size: 300px;
+			z-index: -1;
+		}
+		.table-header {
+			border-radius: 8px 8px 0 0;
+		}
+		.kb-row {
+			background-color: rgba(255, 204, 0, 0.1);
+		}
+		.hana-row {
+			background-color: rgba(0, 133, 126, 0.1);
+		}
+		.compare-table {
+			box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+			border-radius: 8px;
+		}
+		.table-cell {
+			padding: 12px 16px;
+			border-bottom: 1px solid #e2e8f0;
+		}
+		.corner-accent {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: #FFCC00;
+			opacity: 0.15;
+			z-index: -1;
+		}
+		.top-right {
+			top: -100px;
+			right: -100px;
+			border-radius: 0 0 0 200px;
+		}
+		.tennis-icon {
+			width: 20px;
+			height: 20px;
+			background-color: #FFCC00;
+			border-radius: 50%;
+			display: inline-block;
+			position: relative;
+			margin-right: 8px;
+		}
+		.tennis-icon::after {
+			content: "";
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			right: 3px;
+			bottom: 3px;
+			border-radius: 50%;
+			border: 1.5px dashed white;
+		}
+		.comparison-highlight {
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+<div class="slide-container flex flex-col p-12">
+	<div class="pattern-bg"></div>
+	<div class="corner-accent top-right"></div>
+
+	<!-- 헤더 로고 및 제목 -->
+	<div class="w-full flex justify-between items-center mb-8">
+		<img src="https://www.kbstar.com/img/common/logo.png" alt="KB국민은행 로고" class="h-10">
+		<p class="text-sm kb-dark">KB국민은행 테니스 대회 예산안 및 하나증권 사례 비교</p>
+	</div>
+
+	<!-- 타이틀 영역 -->
+	<div class="mb-8">
+		<div class="flex items-center">
+			<div class="tennis-icon"></div>
+			<h2 class="text-3xl font-bold kb-dark">하나증권 vs KB국민은행 테니스 대회 비교</h2>
+		</div>
+		<p class="text-gray-600 mt-2 pl-7">참가비 제외 순수 운영 예산 기준으로 비교</p>
+	</div>
+
+	<!-- 비교표 영역 -->
+	<div class="compare-table bg-white overflow-hidden">
+		<div class="grid grid-cols-9 table-header">
+			<div class="table-cell font-bold bg-gray-100">비교 항목</div>
+			<div class="table-cell col-span-4 font-bold hana-bg-green text-white text-center">하나증권</div>
+			<div class="table-cell col-span-4 font-bold kb-bg-yellow text-white text-center">KB국민은행 (계획)</div>
+		</div>
+
+		<!-- 예산 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">예산</div>
+			<div class="table-cell col-span-4 hana-row">약 1.5억 원 (참가비 제외)</div>
+			<div class="table-cell col-span-4 kb-row comparison-highlight">약 5천만 원 (참가비 제외) <span class="text-green-600">◀ 67% 절감</span></div>
+		</div>
+
+		<!-- 참가자 수 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">참가자 수</div>
+			<div class="table-cell col-span-4 hana-row">672팀 (1,344명), 중복 신청 허용</div>
+			<div class="table-cell col-span-4 kb-row">400팀 (800명)</div>
+		</div>
+
+		<!-- 참가 조건 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">참가 조건</div>
+			<div class="table-cell col-span-4 hana-row">하나증권 계좌 보유 시 신청 가능</div>
+			<div class="table-cell col-span-4 kb-row">자유 신청 + 계좌개설 등 조건 달성 시 혜택 제공</div>
+		</div>
+
+		<!-- 부서 수 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">부서 수</div>
+			<div class="table-cell col-span-4 hana-row">복수 부서 (상세 미공개)</div>
+			<div class="table-cell col-span-4 kb-row">6개 부서 (골드, 실버, 브론즈, 아이언, 혼합복식, 여성부)</div>
+		</div>
+
+		<!-- 대회 기간 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">대회 기간</div>
+			<div class="table-cell col-span-4 hana-row">장기간 운영 (상세 미공개)</div>
+			<div class="table-cell col-span-4 kb-row">9~11월 중 주말 3일간</div>
+		</div>
+
+		<!-- 대회 장소 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">대회 장소</div>
+			<div class="table-cell col-span-4 hana-row">실외 및 실내 테니스장 다수</div>
+			<div class="table-cell col-span-4 kb-row">엠무브 용마, 인천 열우물, 육군사관학교 등</div>
+		</div>
+
+		<!-- 대관 편의성 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50">대관 편의성</div>
+			<div class="table-cell col-span-4 hana-row">대규모 시설 필요</div>
+			<div class="table-cell col-span-4 kb-row comparison-highlight">집중 운영으로 효율적 대관 가능</div>
+		</div>
+
+		<!-- 대상 고객층 -->
+		<div class="grid grid-cols-9">
+			<div class="table-cell font-semibold bg-gray-50 border-b-0">대상 고객층</div>
+			<div class="table-cell col-span-4 hana-row border-b-0">주로 2030 테니스 동호인</div>
+			<div class="table-cell col-span-4 kb-row border-b-0">2030 테니스 동호인 + KB 고객 및 잠재 고객</div>
+		</div>
+	</div>
+
+	<!-- 부가 설명 영역 -->
+	<div class="mt-6 text-gray-700 text-sm">
+		<p class="flex items-start mb-2">
+			<i class="fas fa-info-circle text-blue-500 mt-1 mr-2"></i>
+			<span>하나증권 사례 분석 결과, 유사한 마케팅 효과를 얻으면서도 예산은 더 효율적으로 운용하는 방안 도출</span>
+		</p>
+		<p class="flex items-start">
+			<i class="fas fa-check-circle kb-yellow mt-1 mr-2"></i>
+			<span><span class="font-semibold">참가비 제외 순수 예산 기준</span>으로 KB국민은행 테니스 대회는 하나증권 대비 1억 원 절감 효과 예상</span>
+		</p>
+	</div>
+
+	<!-- 하단 페이지 번호 -->
+	<div class="w-full flex justify-end mt-auto pt-4">
+		<div class="kb-bg-yellow rounded-full w-8 h-8 flex items-center justify-center">
+			<span class="text-white font-medium">5</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>
