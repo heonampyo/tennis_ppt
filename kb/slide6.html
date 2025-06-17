@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 	<style>
 		html {
-			font-size: 1.25vw; /* Base font size for scaling, 16px at 1280px width */
+			font-size: 1.8vmin; /* Use vmin to adapt to both width and height, ensuring visibility */
 		}
 		body {
 			font-family: 'Noto Sans KR', sans-serif;
@@ -25,6 +25,8 @@
 			position: relative;
 			overflow: hidden;
 			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
 		}
 		.kb-yellow {
 			color: #FFCC00;
@@ -52,10 +54,14 @@
 		.budget-table {
 			box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1); /* 4px 12px */
 			border-radius: 0.5rem; /* 8px */
+			flex-shrink: 1;
+    		min-height: 0;
 		}
 		.table-cell {
-			padding: 0.75rem 1rem; /* 12px 16px */
+			padding: 0.5rem 0.75rem; /* Reduced padding */
 			border-bottom: 0.0625rem solid #e2e8f0; /* 1px */
+			line-height: 1.3; /* Adjust line height for compactness */
+			font-size: 0.9em; /* Slightly smaller font for table content */
 		}
 		.corner-accent {
 			position: absolute;
@@ -102,18 +108,18 @@
 	</style>
 </head>
 <body>
-<div class="slide-container flex flex-col p-12">
+<div class="slide-container flex flex-col p-8"> <!-- Reduced padding -->
 	<div class="pattern-bg"></div>
 	<div class="corner-accent bottom-left"></div>
 
 	<!-- 헤더 로고 및 제목 -->
-	<div class="w-full flex justify-between items-center mb-8">
+	<div class="w-full flex justify-between items-center mb-4 flex-shrink-0"> <!-- Reduced margin -->
 		<img src="./KB_logo_2020.jpg" alt="KB국민은행 로고" class="h-10">
 		<p class="text-sm kb-dark">KB국민은행 테니스 대회 예산안 및 하나증권 사례 비교</p>
 	</div>
 
 	<!-- 타이틀 영역 -->
-	<div class="mb-6">
+	<div class="mb-4 flex-shrink-0"> <!-- Reduced margin -->
 		<div class="flex items-center">
 			<div class="tennis-icon"></div>
 			<h2 class="text-3xl font-bold kb-dark">KB국민은행 테니스 대회 예산안(안)</h2>
@@ -122,7 +128,7 @@
 	</div>
 
 	<!-- 예산표 영역 -->
-	<div class="budget-table bg-white overflow-hidden">
+	<div class="budget-table bg-white overflow-auto"> <!-- Allow scroll on overflow -->
 		<div class="grid grid-cols-12 table-header">
 			<div class="table-cell col-span-4 font-bold bg-gray-100">항목</div>
 			<div class="table-cell col-span-2 font-bold bg-gray-100 text-center">금액(만원)</div>
@@ -240,7 +246,7 @@
 	</div>
 
 	<!-- 부가 설명 영역 -->
-	<div class="mt-6 grid grid-cols-2 gap-6">
+	<div class="mt-4 grid grid-cols-2 gap-4 flex-shrink-0"> <!-- Reduced margin and gap -->
 		<div class="bg-white rounded-lg p-4 shadow-sm">
 			<h3 class="font-bold kb-dark text-lg mb-2">예산 효율화 전략</h3>
 			<ul class="text-sm text-gray-700">
@@ -279,7 +285,7 @@
 	</div>
 
 	<!-- 하단 페이지 번호 -->
-	<div class="w-full flex justify-end mt-4">
+	<div class="w-full flex justify-end mt-auto pt-2 flex-shrink-0"> <!-- Pushes to bottom -->
 		<div class="kb-bg-yellow rounded-full w-8 h-8 flex items-center justify-center">
 			<span class="text-white font-medium">6</span>
 		</div>
